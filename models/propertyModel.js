@@ -22,7 +22,8 @@ const propertySchema = new Schema({
     description: { type: String },
     tag: { type: String },
     specifications: specificationsSchema,
-    year_built: { type: Number }
+    year_built: { type: Number },
+    status: { type: String, default: 'available', enum: ["available", "sold"]}
 }, { timestamps: true });
 
 const Property = mongoose.model("Properties", propertySchema);
