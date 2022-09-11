@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const { Cart } = require("../models/cartModel."),
     { Property } = require("../models/propertyModel");
 const { BadRequestError } = require('../middlewares/customError');
+const { Transaction } = require('../models/transactionModel');
 
 const addPropertyToCart = asyncWrapper(async (req, res, next) => {
     const { bearer, property_id } = req.body
@@ -34,51 +35,42 @@ const removePropertyFromCart = asyncWrapper(async (req, res, next) => {
     return res.status(200).send({ message: "Success" })
 })
 
-const getCartItems = asyncWrapper(async(req, res, next) => {
-    const cart = await Cart.findOne({user: req.body.bearer._id}).populate('properties')
+const getCartItems = asyncWrapper(async (req, res, next) => {
+    const cart = await Cart.findOne({ user: req.body.bearer._id }).populate('properties')
     console.log(cart)
-    res.status(200).send({message: "success", response: cart.properties })
+    res.status(200).send({ message: "success", response: cart.properties })
 })
 
-async function checkoutCart(req, res) {
-    // try {
-    //     let cart_items = await getCartItems(null, null, req.body.email),
-    //         total_amount = 0;
-    //     for (let property in cart_items) { total_amount += property.specifications.price };
-    //     let transaction = new Transaction({
-    //         agent_email_fkey: property.agent_email,
-    //         user_email_fkey: req.body.email,
-    //         properties: cart_items,
-    //         total_amount: total_amount,
-    //         payment_method: req.body.payment_method,
-    //         payment_status: "pending",
-    //         transaction_status: "pending",
-    //     })
-    //     transaction.save()
-    //         .then(response => {
-    //             res.status(200).send(response)
-    //         })
-    // } catch (error) {
-    //     console.log(error)
-    //     res.status(500).send(error)
-    // }
-}
+const checkout = asyncWrapper(async(req, res, next) => {
+    const cart = await Cart.findOne({user: req.body.bearer._id}).populate('propeties')
+    const properties = cart.properties
+    let total_amount = 0
 
-async function clearCart(res, res) {
-    try {
-        let response = await Cart.findOneAndDelete({ user_email_fkey: req.body.email });
-        if (response) { res.status(200).send(response) }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+    properties.forEach(property => {
+        total_amount += property.specifications.price
+    })
+
+    console.log(total_amount)
+    const transaction_data = {
+        user: req.body.bearer._id,
+        properties,
+        payment_method: 'card',
+        amount: total_amount,
     }
-}
+    const transaction = await Transaction.create(transaction_data)
+    return res.status(200).send({message: "success", transaction: { reference: transaction.ref }})
+})
+
+const clearCart = asyncWrapper(async (req, res, next) => {
+    const cart = await Cart.findOneAndUpdate({ user: req.body.bearer._id }, { properties: [] })
+    res.status(200).send({ message: "success" })
+})
 
 
 module.exports = {
     addPropertyToCart,
     removePropertyFromCart,
     getCartItems,
-    checkoutCart,
+    checkout,
     clearCart,
 }
