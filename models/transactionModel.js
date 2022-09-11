@@ -1,19 +1,23 @@
 const mongoose = require("mongoose");
+const crypto = require('crypto');
+
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
-    agent_email_fkey: { type: String, required: true, unmodifiable: true },
-    user_email_fkey: { type: String, required: true , unmodifiable: true},
-    property_id_fkey: { type: String, required: true , unmodifiable: true},
-    transaction_type: { type: String, required: true },
-    transaction_date: { type: Date, required: true },
-    transaction_amount: { type: Number, required: true },
-    transaction_status: { type: String, required: true },
-    transaction_notes: { type: String, required: true },
-    transaction_date_created: { type: Date },
-    transaction_date_updated: { type: Date },
-    transaction_date_deleted: { type: Date }
-}, { timestamps: true });
+    user: { type: Schema.Types.ObjectId, required: true},
+    agent: { type: Schema.Types.ObjectId, required: true},
+    properties: [ {type: Schema.Types.ObjectId, required: true }],
+    transaction_type: { type: String, required: true, enum: ['wallet_topup', 'book_trip', 'new_trip' ]},
+    payment_method: { type: String, required: true, enum: ['cash', 'crypto', 'card', 'transfer']},
+    amount: { type: Number, required: true},
+    note: { type: String},
+    status: { type: String, default: 'Pending'},
+    ref: { type: String, default: () => {
+        return crypto.randomUUID()
+    }}
+}, {timestamps: true})
+
+
 
 const Transaction = mongoose.model("Transactions", transactionSchema)
 
