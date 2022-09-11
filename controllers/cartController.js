@@ -61,6 +61,39 @@ const checkout = asyncWrapper(async(req, res, next) => {
     return res.status(200).send({message: "success", transaction: { reference: transaction.ref }})
 })
 
+const confirmCheckout = asyncWrapper(async(req, res, next) => {
+    const { reference, bearer } = req.body
+    if (!reference) { throw new BadRequestError('Payment reference is required') }
+
+    const URL = `https://api.paystack.co/transaction/verify/${reference}`
+
+    const transaction =
+        await axios.get(URL, {
+            headers: { 'Authorization': `Bearer ${config.PAYSTACK_SECRET_KEY}` }
+        })
+            .then(response => { return response.data },
+                error => { return error.response })
+            .catch(error => console.log(error))
+
+    // Failed transaction
+    if (!transaction.data.status) { throw new BadRequestError(transaction.data.message) } 
+
+    // Checks if the transaction amount from payment service provider matches local record
+    const existing_transaction = await Transaction.findOne({ user: bearer._id, ref: reference })
+    if (existing_transaction.amount != (transaction.data.amount / 100)) {
+        throw new BadRequestError('Transaction Amount does not tally with saved amount')
+    }
+
+    // Checks if user's wallet has been credited
+    if (existing_transaction.status != 'success') {
+        await existing_transaction.updateOne({ status: "success" })
+        const user_wallet = await Wallet.findOne({ user: bearer._id })
+        await user_wallet.updateOne({ balance: user_wallet.balance + transaction.data.amount / 100 })
+    }
+
+    res.status(200).send({ message: "Success" })
+})
+
 const clearCart = asyncWrapper(async (req, res, next) => {
     const cart = await Cart.findOneAndUpdate({ user: req.body.bearer._id }, { properties: [] })
     res.status(200).send({ message: "success" })
