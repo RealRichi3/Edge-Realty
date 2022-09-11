@@ -1,0 +1,4526 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Poppins:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+/*
+01. Theme Typo
+02. Header
+	02.1 Top Strip
+		02.1.1 Top Info
+		02.1.2 Search
+	02.1 Logo
+	02.2 Navigation
+		02.2.1 SubMenu
+		02.2.1 MegaMenu
+03. Content
+
+	03.1 Blog
+		03.1.2 Blog Grid
+		03.1.3 Blog Large
+		03.1.4 Blog Detail
+ 
+	03.3 Default Pages Style
+		03.3.1 404
+		03.3.2 Services
+		03.3.3 No Search Result
+		03.3.4 Contact Us
+        03.3.5 PricePlan
+        03.3.6 Faq
+        03.3.7 About Us
+
+	03.4 Projects
+		03.4.1 Project Grid
+		03.4.2 Project Medium
+		03.4.3 Project Modren
+		03.4.4 Artist Detail
+
+	03.5 Team
+		03.5.1 Team Grid
+		03.5.2 Team Detail
+
+	03.6 Shop
+		03.6.1 Shop Grid
+		03.6.2 Shop Detail
+ 
+04. Sidebar Widget
+	04.1 Widget CATEGORY WIDGET
+	04.2 Widget Latest News
+	04.3 Widget Calendar Archive
+	04.4 Widget Text
+	04.5 Widget Recent Posts
+	04.7 Widget Intagram Photos
+	04.8 Popular Tags
+	04.9 User Links
+ 
+05. Footer
+    05.1 Footer Widgets
+    05.2 CopyRight
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffffff;
+    color: #808285;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+    color: #363636;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 1.1px;
+    margin: 0 0 8px;
+}
+h1 {
+    font-size: 26px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 22px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 18px;
+}
+h6 {
+    font-size: 16px;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #363636;
+}
+p a {
+    color: #363636;
+}
+p {
+    line-height: 24px;
+    letter-spacing: 1.1px;
+    margin-bottom: 10px;
+}
+a {
+    color: #363636;
+    text-decoration: none;
+}
+a:hover, a:focus, a:active {
+    outline: none;
+}
+ul {
+    margin-bottom: 0;
+}
+figure {
+    margin-bottom: 6px;
+    position: relative;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+strong {
+    color: #555555;
+}
+iframe {
+    border: none;
+    float: left;
+    width: 100%;
+}
+.wp-caption, .wp-caption-text, .gallery-caption, .bypostauthor {
+}
+.wp-caption.alignleft, .wp-caption.alignnone {
+    width: 100%;
+}
+select {
+    background-color: #f0eef0;
+    border: 1px solid #dfdfdf;
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 40px;
+    padding: 8px 12px;
+    width: 100%;
+}
+label {
+    color: #6c8391;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+button {
+    border: none;
+}
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #f2f2f2;
+    border: none;
+    box-sizing: border-box;
+    color: #aaa9a9;
+    display: inline-block;
+    height: 30px;
+    line-height: 20px;
+    outline: none;
+    padding: 4px 6px;
+    vertical-align: middle;
+    box-shadow: none;
+}
+input[type="submit"] {
+    outline: none;
+}
+form p {
+    float: left;
+    position: relative;
+}
+form p span i {
+    color: #474747;
+    left: 16px;
+    position: absolute;
+    top: 13px;
+}
+option {
+    padding: 5px 15px;
+}
+li {
+    line-height: 28px;
+    list-style: inside none disc;
+}
+ul ul {
+    margin-left: 20px;
+}
+ol {
+    float: none;
+    list-style: outside none decimal;
+    padding-left: 15px;
+}
+ol ol {
+    margin-left: 20px;
+}
+ol li {
+    list-style: outside none decimal;
+    width: 100%;
+}
+table {
+    background-color: transparent;
+    max-width: 100%;
+}
+th {
+    text-align: left;
+}
+table {
+    margin-bottom: 15px;
+    width: 100%;
+}
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td {
+    border: 1px solid #dddddd;
+    line-height: 1.5;
+    padding-left: 3px;
+    text-align: center;
+    vertical-align: top;
+}
+table thead tr th {
+    border-top: 1px solid #dddddd;
+    text-align: center;
+    text-transform: capitalize;
+}
+.table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+    border-top: 1px solid #dddddd;
+}
+table > thead > tr > th {
+    border-bottom: 2px solid #dddddd;
+    vertical-align: bottom;
+}
+table > caption + thead > tr:first-child > th, table > colgroup + thead > tr:first-child > th, table > thead:first-child > tr:first-child > th, table > caption + thead > tr:first-child > td, table > colgroup + thead > tr:first-child > td, table > thead:first-child > tr:first-child > td {
+    border-bottom: 0 none;
+}
+table > tbody + tbody {
+    border-top: 2px solid #dddddd;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 6px 10px;
+}
+p ins {
+    color: #999;
+}
+dl dd 	{ margin-left: 20px; }
+address { font-style: italic; }
+.sticky {}
+.findhome-main-section {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+.findhome-main-content 	    { padding: 110px 0px 60px 0px; }
+.findhome-right-section 	{ float: right; }
+.findhome-left-section 	    { float: left; }
+.findhome-main-wrapper,.findhome-main-content,
+.findhome-main-header,.findhome-navigation-section {
+    float: left;
+    width: 100%;
+}
+/* Header */
+.findhome-header-one { position: relative; z-index: 1;}
+#findhome-header,.findhome-top-strip {
+    float: left;
+    width: 100%;
+}
+.findhome-top-strip { padding-top: 11px; }
+.findhome-top-strip,.findhome-top-strip a {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+.findhome-strip-info {
+    float: left;
+}
+.findhome-strip-info li {
+    float: left;
+    list-style: none;
+    padding: 0px 20px;
+    margin-bottom: 13px;
+    position: relative;
+}
+.findhome-strip-info li:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 9px;
+    width: 1px;
+    height: 12px;
+    background-color: #668eac;
+}
+.findhome-strip-info li:first-child { padding-left: 0px; }
+.findhome-strip-info li:last-child { padding-right: 0px; }
+.findhome-strip-info li:first-child:before { display: none; }
+.findhome-strip-info li i {
+    float: left;
+    margin: 8px 12px 0px 0px;
+}
+.findhome-user-section {
+    float: right;
+}
+/* Logo */
+.findhome-main-header .container { position: relative; }
+.findhome-main-header [class*="col-md-"] { position: static; }
+.logo {
+    background: #fff;
+    left: 15px;
+    position: absolute;
+    top: -52px;
+    padding: 35px 23px 36px 23px;
+}
+.logo:before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+    width: 999em;
+    height: 70px;
+    border-bottom: 4px solid #cccccc;
+}
+.logo span {
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    width: 100%;
+    height: 14px;
+    background-color: #ffffff;
+}
+.logo span:before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: 0px;
+    border-top: 10px solid #ffffff;
+    border-left: 7px solid transparent;
+}
+.findhome-header-wrap {
+    float: left;
+    border-bottom: 4px solid #cccccc;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+}
+.findhome-header-wrap:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 999em;
+    height: 100%;
+    background-color: #ffffff;
+}
+/* Navigation */
+.navbar {
+    background: none;
+    border: none;
+    float: left;
+    margin-bottom: 0px;
+    text-align: left;
+}
+.navbar-nav > li { padding: 0px 27px 0px 27px; }
+.navbar-nav > li > a {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 26px 0px 25px 0px;
+    position: relative;
+}
+.navbar-nav > li > a:before {
+    content: '';
+    width: 17px;
+    height: 7px;
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    background: url(images/nav-hover.png);
+    opacity: 0;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+.navbar-nav > li.active > a:before,.navbar-nav > li:hover > a:before {
+    opacity: 1;
+    top: 14px;
+}
+.navbar-nav > li > a:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -4px;
+    height: 4px;
+    width: 40%;
+    opacity: 0;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+.navbar-nav > li.active > a:after,.navbar-nav > li:hover > a:after {
+    opacity: 1;
+    width: 100%;
+}
+.navbar-nav > li:first-child { padding-left: 0px; }
+.navbar-nav > li:last-child { padding-right: 0px; }
+.navbar-nav li:hover > .findhome-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+.findhome-dropdown-menu {
+    background-color: #ffffff;
+    left: 0;
+    margin: 10px 0px 0px 0px;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    width: 240px;
+    z-index: 999;
+}
+.findhome-dropdown-menu .findhome-dropdown-menu {
+    left: 100%;
+    top: 0%;
+    margin: 0px 0px 0px 5px;
+}
+.findhome-dropdown-menu > li {
+    float: left;
+    list-style: none;
+    position: relative;
+    width: 100%;
+}
+.findhome-megalist { margin: 0px;}
+.findhome-dropdown-menu li a,.findhome-megalist li a {
+    border-bottom: 1px solid #f8f8f8;
+    color: #576777;
+    float: left;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px 25px;
+    width: 100%;
+}
+.findhome-megalist li a { padding: 13px 0px;}
+.findhome-dropdown-menu > li:last-child > a,.findhome-megalist li:last-child a { border: none; }
+.findhome-dropdown-menu > li.subdropdown-addicon > a:before {
+    content: "\f107";
+    font-family: FontAwesome;
+    float: right;
+    margin: 0px 0px 0px 0px;
+    color: #999;
+}
+.collapse { display: none; }
+.findhome-banner { margin-top: -75px;}
+.findhome-simple-btn {
+    float: right;
+    border: 1px solid;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    padding: 5px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin: 19px 40px 0px 0px;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+.findhome-simple-btn:hover { color: #ffffff; }
+.nav > li.findhome-megamenu-li { position: static; }
+.findhome-megamenu {
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding: 28px 30px 10px 30px;
+    margin: 10px 0px 0px 0px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+.navbar-nav > li:hover .findhome-megamenu {
+    opacity: 1;
+    visibility: visible;
+}
+.findhome-megamenu li { list-style: none; }
+.findhome-megamenu li h4 {
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+.findhome-sticky .findhome-header-wrap {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    text-align: center;
+}
+.findhome-sticky .findhome-header-wrap aside.col-md-3 { display: none;}
+.findhome-sticky .findhome-header-wrap aside.col-md-9 { width: 100%;}
+.findhome-sticky .logo,.findhome-sticky .findhome-simple-btn { display: none;}
+.findhome-sticky .findhome-header-wrap .navbar {
+    display: inline-block;
+    margin-bottom: -5px;
+    float: none;
+}
+/*findhome-banner*/
+.findhome-banner,.findhome-property-search form,.findhome-property-search form ul li input[type="text"],.findhome-banner-select,
+.findhome-property-search form ul li label,.findhome-property-search form ul li input[type=number] {
+    float: left;
+    width: 100%;
+}
+.findhome-banner {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-banner #map {
+    width: 100%;
+    height: 850px;
+}
+.findhome-property-search.property-search-active { right: 0px; }
+.findhome-property-search {
+    position: absolute;
+    right: -600px;
+    width: 600px;
+    bottom: 0%;
+    background: rgba(0,66,116,0.95);
+    padding: 42px 30px 24px;
+    margin: 0 0 57px;
+    -webkit-transition: all 0.4s ease-in-out;
+       -moz-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+         -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+}
+.findhome-banner-heading {
+    position: relative;
+    margin: 0px 0px 49px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0px 0px 10px;
+}
+.findhome-banner-heading:before {
+    content: '';
+    position: absolute;
+    width: 141px;
+    height: 1px;
+    left: 0px;
+    bottom: 0px;
+    background: rgba(255,255,255,0.15);
+}
+.findhome-property-search form ul { margin: 0px -15px;}
+.findhome-property-search form ul li {
+    float: left;
+    width: 50%;
+    padding: 0px 15px;
+    list-style: none;
+    margin: 0px 0px 29px;
+    position: relative;
+}
+.findhome-property-search form ul li label {
+    margin: 0px 0px 15px;
+    line-height: 0.8;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+.findhome-property-search form ul li input[type="text"] {
+    background: rgba(255,255,255,0.10);
+    height: 40px;
+    font-style: italic;
+    font-size: 12px;
+    color: #cccccc;
+    padding-left: 31px;
+}
+.findhome-property-search form ul li i {
+    position: absolute;
+    left: 29px;
+    bottom: 15px;
+    font-size: 12px;
+    color: #ffffff;
+}
+.findhome-banner-select select {
+    background: rgba(255,255,255,0.10);
+    height: 40px;
+    font-style: italic;
+    font-size: 12px;
+    color: #cccccc;
+    padding-left: 16px;
+    border: none;
+}
+.findhome-banner-select                                     { position: relative;}
+.findhome-banner-select:after {
+    content: "\f107";
+    font-family: FontAwesome;
+    font-size: 12px;
+    color: #ffffff;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+    position: absolute;
+    background: #255d88;
+    width: 37px;
+    padding: 5px 0px 0 0;
+    height: 40px;
+}
+.findhome-property-search form ul li.price > input[type="text"] {
+    width: 47%;
+    margin: 0px 15px 0px 0px;
+    padding-left: 39px;
+}
+.findhome-property-search form ul li.price > input[type="text"]:last-child { margin: 0px;}
+.findhome-property-search form ul li input[type="submit"] {
+    float: left;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    padding: 17px 33px 16px;
+    position: relative;
+}
+.findhome-property-search form ul li label.banner-submit {
+    position: relative;
+    width: auto;
+    margin: 0px;
+}
+label.banner-submit:before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 100%;
+    height: 100%;
+}
+label.banner-submit:hover:before { right: 0px; bottom: 0px;}
+.findhome-property-search form ul li input[type=number] {
+    background: rgba(255,255,255,0.10);
+    height: 40px;
+    font-size: 12px;
+    color: #cccccc;
+    text-align: center;
+    font-weight: 600;
+}
+.findhome-property-search.property-search-active .close-btn { display: block; }
+.findhome-property-search.property-search-active .open-btn { display: none; }
+.findhome-property-search .close-btn { display: none; }
+.findhome-property-search .close-btn,
+.findhome-property-search .open-btn {
+    position: absolute;
+    left: -81px;
+    top: 0px;
+    color: #ffffff;
+    padding: 11px 23px 9px 22px;
+    font-weight: 600;
+}
+/*Content*/
+.findhome-fancy-title {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px 79px;
+}
+.findhome-fancy-title h2 {
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0px 0px 15px;
+    text-transform: uppercase;
+    line-height: 0.6;
+}
+.findhome-fancy-shape {
+    display: inline-block;
+    position: relative;
+    width: 158px;
+}
+.findhome-fancy-shape:before,.findhome-fancy-shape:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin: -2px 0px 0px;
+    width: 60px;
+    height: 1px;
+}
+.findhome-fancy-shape:after { right: 0px; left: auto;}
+.findhome-fancy-shape span {
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+.findhome-fancy-shape span:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    height: 100%;
+    width: 2px;
+    margin: 0px 0px 0px -1px;
+}
+.findhome-fancy-shape span:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    height: 2px;
+    width: 100%;
+    margin: 0px 0px -1px;
+    z-index: -1;
+}
+.findhome-fancy-shape span small {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid;
+    position: relative;
+    border-radius: 100%;
+    background-color: #ffffff;
+}
+.findhome-fancy-shape span small:before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 4px;
+    height: 4px;
+}
+/*Listing Grid*/
+.findhome-listing,.findhome-listing-filterable,.findhome-listing-select,.findhome-listing-tabs,.findhome-listing-classic-text,
+.findhome-listing-classic figure,.findhome-listing-classic figure a,.findhome-listing-classic figure a img,.findhome-user-post {
+    float: left;
+    width: 100%;
+}
+.findhome-listing-filterable {
+    background-color: #f5f5f5;
+    padding: 28px 0px 0px;
+    margin: 0px 0px 50px;
+}
+.findhome-listing-select { padding: 0px 30px;}
+.findhome-listing-select ul { margin: 0px -25px;}
+.findhome-listing-select ul li {
+    float: left;
+    list-style: none;
+    width: 26.6%;
+    padding: 0px 25px;
+    margin: 0px 0px 30px;
+}
+.findhome-listing-select ul li:last-child { width: 20%;}
+.findhome-listing-select ul li label {
+    float: left;
+    margin: 0px 0px 13px;
+    color: #363636;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+.findhome-listing-select .findhome-banner-select select {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    height: 35px;
+    font-style: normal;
+    color: #808285;
+    font-weight: normal;
+    font-size: 10px;
+    padding-left: 11px;
+}
+.findhome-listing-select .findhome-banner-select:after {
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #808285;
+    height: 33px;
+    bottom: 1px;
+    right: 1px;
+    padding: 3px 0px 0px;
+}
+.findhome-listing-select ul li label.banner-submit {
+    position: relative;
+    float: right;
+    margin: 7px 0px 0px;
+}
+.findhome-listing-select ul li label.banner-submit:before { left: -3px; right: auto;}
+.findhome-listing-select ul li label.banner-submit:hover:before { left: 0px;}
+.findhome-listing-select ul li label input[type="submit"] {
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    padding: 15px 33px;
+    position: relative;
+}
+.findhome-listing-tabs {
+    padding: 15px 30px 7px;
+    border-top: 1px solid #ffffff;
+}
+.findhome-listing-filter { float: left;}
+.findhome-listing-filter li {
+    float: left;
+    list-style: none;
+    color: #363636;
+    letter-spacing: 0.4px;
+    margin: 0px 30px 10px 0px;
+}
+.findhome-listing-filter li a {
+    padding-left: 18px;
+    position: relative;
+    display: inline-block;
+    color: #808285;
+}
+.findhome-listing-filter li a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 1px solid #808285;
+}
+.findhome-listing-filter li a:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 11px;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+}
+.findhome-listing-filter li i {
+    margin: 8px 10px 0px 0px;
+    float: left;
+}
+.findhome-listing-tabs .nav-tabs {
+    float: right;
+    border-radius: 0px;
+    border: none;
+}
+.findhome-listing-tabs .nav-tabs li {
+    list-style: none;
+    line-height: 1;
+    margin: 5px 0px 0px 18px;
+    position: relative;
+}
+.findhome-listing-tabs .nav-tabs > li.active > a,
+.findhome-listing-tabs .nav-tabs > li.active > a:hover,
+.findhome-listing-tabs .nav-tabs > li.active > a:focus {
+    border: none;
+    background-color: transparent;
+}
+.findhome-listing-tabs .nav-tabs li a i.icon-squares2 { font-size: 12px;}
+.findhome-listing-tabs .nav-tabs li a {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #808285;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0px;
+}
+.findhome-listing-classic,.findhome-listing-list { text-align: center;}
+.findhome-listing > ul > li {
+    list-style: none;
+    margin: 0px 0px 50px;
+    text-align: left;
+}
+.findhome-listing-classic figure { margin: 0px;}
+.findhome-listing-classic figure > a {
+    position: relative;
+    overflow: hidden;
+}
+.img-transparent {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.35;
+}
+.findhome-listing-classic figure > span {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #ffffff;
+    background-color: #e63355;
+    border-radius: 5px;
+    z-index: 1;
+    line-height: 1;
+    padding: 4px 14px 5px;
+    font-size: 12px;
+}
+.findhome-listing-classic figure > span.color-one { background-color: #e633ad;}
+.findhome-listing-classic figure > span.color-two { background-color: #8333e6;}
+.findhome-listing-classic figure > span.color-three { background-color: #3355e6;}
+.findhome-listing-classic figure > span.color-four { background-color: #2dcfcd;}
+.findhome-listing-classic figure > span.color-five { background-color: #cf792d;}
+.findhome-listing-classic figure figcaption {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+.findhome-listing-classic figure figcaption:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+}
+.findhome-listing-option {
+    float: left;
+    margin: 0px;
+    padding: 8px 30px 9px;
+}
+.findhome-listing-option li {
+    float: left;
+    list-style: none;
+    margin: 0px 41px 0px 0px;
+}
+.findhome-listing-option li:last-child { margin: 0px;}
+.findhome-listing-option li a {
+    color: #ffffff;
+    font-size: 10px;
+    position: relative;
+}
+.findhome-listing-option li a:before {
+    content: '';
+    position: absolute;
+    right: -21px;
+    top: 10px;
+    height: 10px;
+    width: 1px;
+    background-color: #306e9e;
+}
+.findhome-listing-option li:last-child a:before { content: none;}
+.findhome-listing-option li a i {
+    float: left;
+    margin: 9px 15px 0px 0px;
+}
+.findhome-listing-classic-text {
+    background-color: #f5f5f5;
+    padding: 23px 20px 22px 30px;
+}
+.findhome-listing-classic-text h6 {
+    font-weight: 600;
+    font-size: 19px;
+    margin: 0px 0px 1px;
+}
+.findhome-listing-classic-text span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 13px;
+}
+.findhome-listing-classic-text span i {
+    margin: 8px 10px 0px 0px;
+    float: left;
+}
+.findhome-listing-classic-text p {
+    margin: 0px;
+    letter-spacing: 0.5px;
+}
+.findhome-user-post {
+    padding: 12px 30px 10px;
+    background: url(images/listing-grid-transparent.png);
+}
+.findhome-user-post h6 {
+    float: left;
+    font-weight: 600;
+    margin: 0px;
+}
+.findhome-user-post time {
+    float: right;
+    font-size: 12px;
+}
+.findhome-user-post time i { margin: 0px 10px 0px 0px;}
+.findhome-readmore-btn {
+    display: inline-block;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 13px 35px 12px;
+    border: 1px solid;
+}
+.findhome-readmore-btn:hover { background-color: transparent;}
+/*listing Modern*/
+.findhome-listing-modern figure,.findhome-listing-modern figure > a,.findhome-listing-modern figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-listing-modern figure { margin: 0px;}
+.findhome-listing-modern ul li:hover figure > a .img-transparent { opacity: 0.10;}
+.findhome-listing-modern figure figcaption {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin: -34px 0px 0px;
+}
+.findhome-listing-modern figure figcaption h3 {
+    text-transform: uppercase;
+    margin: 0px 0px 6px;
+    position: relative;
+    line-height: 1;
+    font-weight: 600;
+    padding: 0px 0px 14px;
+}
+.findhome-listing-modern figure figcaption h3 a { color: #ffffff;}
+.findhome-listing-modern figure figcaption h3:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 40px;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 0px 0px 0px -20px;
+}
+.findhome-listing-modern figure figcaption span {
+    color: #ffffff;
+}
+/*Classic Team*/
+.findhome-team,.findhome-classic-team-text figure a img,.findhome-classic-team-text,.findhome-classic-team-text figure a {
+    float: left;
+    width: 100%;
+}
+.findhome-team > ul > li {
+    list-style: none;
+    margin: 0px 0px 50px;
+}
+.findhome-classic-team-text {
+    text-align: center;
+    position: relative;
+    border: 1px solid #ececec;
+    margin: 50px 0px 0px;
+    padding: 78px 34px 23px;
+}
+.findhome-classic-team ul li:hover .findhome-classic-team-text {
+    margin: 38px 0px 0px;
+    box-shadow: 1px 1px 28px #dddddd;
+}
+.findhome-classic-team-text figure {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    width: 100px;
+    border-radius: 100%;
+    border: 1px solid #ececec;
+    margin: 0px 0px 0px -49px;
+}
+.findhome-classic-team-text figure img { border-radius: 100%;}
+.findhome-classic-team-text h5 {
+    font-weight: 600;
+    margin: 0px;
+    line-height: 1;
+}
+.findhome-classic-team ul li:hover .findhome-classic-team-text h5 a,
+.findhome-classic-team ul li:hover .findhome-classic-team-text span,
+.findhome-classic-team ul li:hover .findhome-classic-team-text p,
+.findhome-classic-team ul li:hover .findhome-team-social li a { color: #ffffff;}
+.findhome-classic-team ul li:hover .findhome-classic-team-text span:before { background-color: #ffffff;}
+.findhome-classic-team-text span {
+    display: inline-block;
+    margin: 0px 0px 13px;
+    position: relative;
+    letter-spacing: 0.5px;
+    padding: 0px 0px 11px;
+}
+.findhome-classic-team-text span:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 23px;
+    height: 1px;
+    margin: 0px 0px 0px -11px;
+}
+.findhome-classic-team-text p {
+    margin: 0px 0px 15px;
+    letter-spacing: 0.4px;
+}
+.findhome-team-social {
+    display: inline-block;
+    margin: 0px;
+}
+.findhome-team-social li {
+    display: inline-block;
+    margin: 0px 4px 0px 0px;
+    list-style: none;
+}
+.findhome-team-social li a {
+    font-size: 16px;
+    color: #808285;
+}
+/*counter*/
+.findhome-counter {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.findhome-counter ul li {
+    float: left;
+    width: 25%;
+    list-style: none;
+    margin: 0px 0px 30px;
+}
+.findhome-counter ul li i {
+    font-size: 56px;
+    display: block;
+    color: #ffffff;
+    margin: 0px 0px 28px;
+}
+.findhome-counter ul li .numscroller,.findhome-counter ul li small {
+    font-size: 40px;
+    margin: 0px 0px 1px;
+    line-height: 1;
+    font-weight: 600;
+    color: #ffffff;
+    display: inline-block;
+}
+.findhome-counter ul li span {
+    color: #ffffff;
+    display: block;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+/*Blog Grid*/
+.findhome-blog,.findhome-blog-grid figure,.findhome-blog-grid figure a,.findhome-blog-grid figure a img,
+.findhome-blog-grid-text {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-grid figure { margin: 0px;}
+.findhome-blog > ul > li {
+    list-style: none;
+    margin: 0px 0px 50px;
+}
+.findhome-blog-grid figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-blog-grid figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+}
+.findhome-blog-grid ul li:hover figure a span { opacity: 0;}
+.findhome-blog-grid ul li:hover figure a:before {
+    height: 100%;
+    opacity: 0.85;
+}
+.findhome-blog-grid figure a i {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    width: 55px;
+    height: 55px;
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 100%;
+    padding: 20px 0px 0px;
+    margin: -27px 0px 0px -27px;
+    opacity: 0;
+}
+.findhome-blog-grid ul li:hover figure a i {
+    top: 50%;
+    opacity: 1;
+}
+.findhome-blog-grid-text { padding: 0px 0px 0px 0px;}
+.findhome-blog-grid-text time {
+    float: left;
+    width: 60px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    font-weight: 600;
+    padding: 11px 13px 15px;
+    position: relative;
+    overflow: hidden;
+    margin: 0px 0px 22px;
+}
+.findhome-blog-grid-text time:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-bottom: 10px solid;
+    border-left: 100px solid transparent;
+}
+.findhome-blog-grid-text time ~ h5 { padding: 18px 0px 0px 85px;}
+.findhome-blog-grid-text h5 {
+    padding: 0px;
+    margin: 0px 0px 3px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+.findhome-blog-grid-text time ~ .findhome-blog-option { padding: 0px 0px 0px 85px;}
+.findhome-blog-grid-text p {
+    float: left;
+    margin: 0px 0px 19px;
+    letter-spacing: 0.6px;
+}
+.findhome-blog-option {
+    margin: 0px;
+    padding: 0px;
+}
+.findhome-blog-option li {
+    list-style: none;
+    float: left;
+    margin: 0px 50px 0px 0px;
+    position: relative;
+}
+.findhome-blog-option li:before {
+    content: '';
+    position: absolute;
+    right: -26px;
+    top: 11px;
+    height: 10px;
+    width: 1px;
+    background-color: #bbbbbb;
+}
+.findhome-blog-option li:last-child:before { content: none;}
+.findhome-blog-option li:last-child { margin: 0px;}
+.findhome-blog-option li a {
+    color: #808285;
+    font-size: 12px;
+}
+.findhome-blog-option li a i { margin: 0px 6px 0px 0px;}
+.findhome-plane-btn {
+    float: left;
+    color: #717171;
+    line-height: 1;
+}
+.findhome-plane-btn i { margin: 0px 0px 0px 9px;}
+/*Testimonial*/
+.findhome-testimonial-wrap,.findhome-testimonial {
+    float: left;
+    width: 100%;
+}
+.findhome-testimonial-wrap ul li {
+    list-style: none;
+    margin: 0px 0px 50px;
+}
+.findhome-testimonial {
+    position: relative;
+    padding: 82px 0px 0px 60px;
+}
+.findhome-testimonial:before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 161px;
+    height: 1px;
+    background-color: #cccccc;
+}
+.findhome-testimonial:after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 1px;
+    height: 161px;
+    background-color: #cccccc;
+}
+.findhome-testimonial i {
+    border-radius: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: #ffffff;
+    padding: 21px 0px 0px;
+    font-size: 23px;
+}
+.findhome-testimonial p {
+    margin: 0px 0px 21px;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+.findhome-testimonial figure {
+    float: right;
+    margin: 0px;
+    width: 175px;
+}
+.findhome-testimonial figure img {
+    float: left;
+    width: 50px;
+    border-radius: 100%;
+}
+.findhome-testimonial figure img ~ figcaption {
+    padding: 4px 0px 0px 65px;
+    line-height: 1;
+}
+.findhome-testimonial figure figcaption h6 {
+    margin: 0px;
+    font-weight: 600;
+}
+.findhome-testimonial figure figcaption span {
+    color: #9c9da0;
+    font-size: 10px;
+}
+/*findhome-partner*/
+.findhome-partner-slider {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.findhome-partner-slider-layer a {
+    display: inline-block;
+    border: 1px solid #eeeeee;
+    padding: 33px 27px 0px;
+    height: 100px;
+    filter: gray; 
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.findhome-partner-slider-layer:hover a {
+    filter: none; 
+    -webkit-filter: grayscale(0px);
+}
+/*Footer*/
+.findhome-footer-one,.findhome-footer-strip-twitter,.findhome-footer-strip {
+    float: left;
+    width: 100%;
+}
+.findhome-footer-strip {
+    border-bottom: 10px solid;
+}
+.findhome-footer-strip-twitter {
+    position: relative;
+    padding: 23px 0px 11px;
+}
+.findhome-footer-strip-twitter:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 999em;
+}
+.findhome-footer-strip-twitter:after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 0px;
+    border-bottom: 60px solid;
+    border-right: 30px solid transparent;
+}
+.findhome-footer-strip-twitter i {
+    float: left;
+    font-size: 28px;
+    color: #ffffff;
+    margin: -2px 30px 0px 0px;
+    position: relative;
+}
+.findhome-footer-strip-layer p {
+    margin: 0px 28px 0px 0px;
+    float: left;
+    color: #ffffff;
+}
+.findhome-footer-strip-layer p span { font-weight: 600;}
+.findhome-footer-strip-layer p a {
+    color: #ffffff;
+    font-weight: 600;
+}
+.findhome-footer-strip-layer time {
+    color: #dddddd;
+    float: left;
+    margin: 2px 0px 0px;
+}
+.findhome-footer-strip .slick-list { width: 85%;}
+.findhome-footer-strip .slick-arrow {
+    position: absolute;
+    right: 30px;
+    color: #dddddd;
+    top: 23px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1;
+}
+.findhome-footer-strip .slick-arrow:hover { color: #ffffff;}
+.findhome-footer-strip .slick-arrow.slick-arrow-left { right: 55px;}
+/*findhome-footer-widget*/
+.findhome-footer-one .widget { margin: 0px 0px 75px;}
+.findhome-footer-widget {
+    float: left;
+    width: 100%;
+    background: url(images/footer-back-transparent.png);
+    position: relative;
+    padding: 81px 0px 0px;
+}
+.footer-widget-transparent {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.95);
+}
+/*findhome-footer-title*/
+.findhome-footer-title {
+    position: relative;
+    margin: 0px 0px 32px;
+    font-size: 20px;
+    line-height: 0.7;
+    font-weight: 600;
+    padding: 0px 0px 13px;
+}
+.findhome-footer-title:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    width: 20px;
+    height: 1px;
+}
+.findhome-footer-title:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 20px;
+    height: 1px;
+}
+/*Sidebar*/
+.widget_aboutus p {
+    margin: 0px 0px 21px;
+    letter-spacing: 0.6px;
+    line-height: 26px;
+}
+.widget_aboutus ul,.widget_aboutus ul li {
+    float: left;
+    width: 100%;
+}
+.widget_aboutus ul li {
+    list-style: none;
+    margin: 0px 0px 20px;
+}
+.widget_aboutus ul li:last-child { margin: 0px;}
+.widget_aboutus ul li i {
+    float: left;
+    color: #ffffff;
+    padding: 8px 0px 0px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.widget_aboutus ul li > p { margin: 0px;}
+.widget_aboutus ul li i ~ p { padding: 0px 0px 0px 50px;}
+.widget_aboutus a { color: #808285;}
+/*widget_links*/
+.widget_links ul {
+    float: left;
+    width: 100%;
+}
+.widget_links ul li {
+    float: left;
+    width: 50%;
+    margin: 0px 0px 13px;
+    list-style: none;
+}
+.widget_links ul li a {
+    color: #808285;
+    float: left;
+    line-height: 2;
+}
+.widget_links ul li:hover a { padding: 0px 0px 0px 11px;}
+.widget_links ul li a i {
+    float: left;
+    margin: 6px 20px 0px 0px;
+}
+/*Widget Newsletter*/
+.widget_newsletter form,.widget_newsletter form input[type="text"] {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.widget_newsletter p {
+    margin: 0px 0px 18px;
+    letter-spacing: 0.5px;
+}
+.widget_newsletter form > label{
+    color: #363636;
+    float: left;
+    position: relative;
+    margin: 0px 0px 10px;
+    font-weight: 600;
+}
+.widget_newsletter form input[type="text"] {
+    background-color: #f1f1f1;
+    height: 40px;
+    color: #aaaaaa;
+    font-size: 10px;
+    font-style: italic;
+    padding-left: 20px;
+    margin: 0px 0px 20px;
+}
+.widget_newsletter form input[type="submit"] {
+    float: left;
+    position: relative;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 13px 14px 12px;
+}
+/*findhome-copyright*/
+.findhome-copyright {
+    float: left;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #dddddd;
+    padding: 24px 0px 22px;
+    position: relative;
+}
+.findhome-copyright p {
+    margin: 0px;
+}
+.findhome-copyright p a{ color: #808285;}
+.findhome-back-top {
+    position: absolute;
+    right: 0px;
+    top: -13px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+    color: #aaaaaa;
+    border: 1px solid #c0c0c0;
+    background-color: #ffffff;
+}
+.findhome-back-top:hover { color: #ffffff;}
+/*widget-listing*/
+.widget-listing-wrap {
+    background-color: #f5f5f5;
+    padding: 20px 20px 28px;
+    position: relative;
+}
+.widget-listing-wrap figure,.widget-listing-wrap figure a,.widget-listing-wrap figure a img {
+    float: left;
+    width: 100%;
+}
+.widget-listing-wrap figure { margin: 0px 0px 24px;}
+.widget-listing-wrap figure span {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 3px 11px 2px;
+}
+.widget-listing-wrap h6 {
+    margin: 0px;
+    font-weight: 600;
+}
+.widget-listing-wrap > span {
+    font-size: 12px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+.widget-listing-wrap > span i { margin: 0px 9px 0px 0px;}
+.widget-listing-wrap p {
+    font-size: 12px;
+    margin: 0px 0px 12px;
+    line-height: 1;
+}
+.widget-listing-wrap p i { width: 21px;}
+.widget-listing-wrap p a{
+    color: #808285;
+}
+.widget_featured_listing.widget-agent .widget-listing-wrap { padding-bottom: 19px;}
+.widget_featured_listing.widget-agent .widget-listing-wrap > span { margin: 0px 0px 23px;}
+.widget-social {
+    position: absolute;
+    right: -5px;
+    bottom: 30px;
+    width: 35px;
+    padding: 14px 0px 13px;
+}
+.widget-social:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: -5px;
+    border-top: 5px solid #0592c7;
+    border-right: 5px solid transparent;
+}
+.widget-social li {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px 12px;
+    list-style: none;
+    line-height: 1;
+}
+.widget-social li:last-child { margin: 0px;}
+.widget-social li a { color: #ffffff;}
+
+/*Widget Filter*/
+.widget_filter form,.widget_filter form ul li,.widget_filter form input[type="number"] {
+    float: left;
+    width: 100%;
+}
+.widget_filter form ul li {
+    list-style: none;
+    position: relative;
+    margin: 0px 0px 30px;
+}
+.widget_filter form ul li:last-child { margin: 0px;}
+.widget_filter form ul li label.amount {
+    position: absolute;
+    left: 75px;
+    bottom: 5px;
+    margin: 0px;
+    font-size: 12px;
+}
+.widget_filter form ul li label.amount i {
+    font-size: 10px;
+    margin: 0px 8px 0px 0px;
+}
+.widget_filter form input[type="number"] {
+    text-align: center;
+    font-size: 12px;
+    height: 40px;
+    border: 1px solid #f5f5f5;
+    background-color: transparent;
+    padding-left: 100px;
+}
+.widget_filter form input[type="text"] {
+    font-size: 14px;
+    float: left;
+    background-color: transparent;
+    color: #808285;
+    width: 117px;
+}
+.widget_filter form h6 {
+    float: left;
+    margin: 3px 7px 0px 0px;
+    letter-spacing: 0.7px;
+    font-size: 15px;
+    font-weight: 600;
+}
+#slider-range,#slider-range2 {
+    float: left;
+    width: 100%;
+    height: 5px;
+    background-color: #e1e1e1;
+    position: relative;
+    margin: 5px 0px 0px;
+}
+.ui-slider .ui-slider-range {
+    position: absolute;
+    height: 5px;
+    top: 0px;
+}
+#slider-range span,#slider-range2 span {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: -3px;
+    margin: 0px 0px 0px -1px;
+    border: 2px solid;
+    background-color: #fff;
+    border-radius: 100%;
+}
+#slider-range span:last-child,#slider-range2 span:last-child { margin: 0px 0px 0px -5px;}
+#amount,#amount2 { letter-spacing: 1px;}
+.widget_filter form label.banner-submit {
+    position: relative;
+    float: left;
+    margin: 0px;
+}
+.widget_filter form label.banner-submit input[type="submit"] {
+    position: relative;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 6px 32px;
+    letter-spacing: 0.5px;
+}
+/*Widget Filter*/
+
+/* Blog detail */
+.findhome-subheader,.findhome-subheader-image,.findhome-breadcrumb,.findhome-breadcrumb ul {
+    float: left;
+    width: 100%;
+}
+.findhome-subheader { margin: -75px 0px 0px;}
+.findhome-subheader-image {
+    background-image: url("extra-images/subheader-img.jpg");
+    padding: 148px 0px 84px;
+    text-align: center;
+    position: relative;
+}
+.findhome-dark-transparent {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+.findhome-subheader-image h1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0px;
+    text-transform: uppercase;
+}
+.findhome-subheader-image span {
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 0.7px;
+}
+.findhome-breadcrumb { border-bottom: 2px solid;}
+.findhome-breadcrumb ul {
+    position: relative;
+    margin: 2px 0px 0px;
+    padding: 11px 0px 9px;
+}
+.findhome-breadcrumb ul:after {
+    position: absolute;
+    content: '';
+    right: -30px;
+    top: 0px;
+    border-bottom: 49px solid;
+    border-right: 31px solid transparent;
+}
+.findhome-breadcrumb ul:before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+    width: 999em;
+    height: 100%;
+}
+.findhome-breadcrumb ul li {
+    float: left;
+    list-style: none;
+    position: relative;
+    letter-spacing: 0.4px;
+    padding: 0px 20px;
+}
+.findhome-breadcrumb ul li:first-child { padding-left: 0px;}
+.findhome-breadcrumb ul li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    position: absolute;
+    right: -3px;
+    top: 0px;
+}
+.findhome-breadcrumb ul li:last-child:before { content: none;}
+.findhome-breadcrumb ul li,.findhome-breadcrumb ul li a {
+    color: #ffffff;
+}
+/*Blog Detail*/
+.findhome-thumb-heading,.findhome-blog-thumb {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-thumb { margin: 0px;}
+.findhome-thumb-heading { margin: 0px 0px 34px;}
+.findhome-thumb-heading time {
+    float: left;
+    font-weight: 600;
+    width: 70px;
+    color: #ffffff;
+    overflow: hidden;
+    font-size: 18px;
+    text-align: center;
+    line-height: 22px;
+    padding: 15px 10px 16px;
+    position: relative;
+}
+.findhome-thumb-heading time:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-bottom: 10px solid;
+    border-left: 100px solid transparent;
+}
+.findhome-thumb-heading time ~ h2 { margin: 12px 0px 3px 100px;}
+.findhome-thumb-heading h2 {
+    margin: 12px 0px 3px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.findhome-thumb-heading time ~ .findhome-thumb-option { float: none; margin: 0px 0px 0px 101px;}
+.findhome-thumb-option {
+    float: left;
+    margin: 0px;
+}
+.findhome-thumb-option li {
+    float: left;
+    margin: 0px 20px 0px 0px;
+    list-style: none;
+}
+.findhome-thumb-option li i { margin: 0px 9px 0px 0px;}
+.findhome-thumb-option li a {
+    color: #808285;
+}
+/*findhome-rich-editor*/
+.findhome-rich-editor,blockquote {
+    float: left;
+    width: 100%;
+}
+.findhome-rich-editor { margin: 0px 0px 36px;}
+.findhome-rich-editor p {
+    margin: 0px 0px 25px;
+    line-height: 26px;
+    letter-spacing: 0.6px;
+}
+blockquote {
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 0.6px;
+    padding: 23px 30px 25px;
+    margin: 6px 0px 34px;
+    line-height: 26px;
+    position: relative;
+}
+blockquote:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-bottom: 30px solid;
+    border-left: 30px solid transparent
+}
+blockquote:after {
+    content: "\f10e";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    font-size: 30px;
+    color: #ffffff;
+    opacity: 0.1;
+    font-style: normal;
+}
+blockquote span {
+    bottom: 17px;
+    height: 2px;
+    position: absolute;
+    right: -7px;
+    width: 50px;
+}
+/*blog- tags*/
+.findhome-post-tags {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+    padding: 25px 0px 26px 0;
+    margin: 0px 0 70px;
+}
+.findhome-tags {
+    float: left;
+    width: 50%;
+}
+.findhome-tags i {
+    float: left;
+    margin: 4px 20px 0px 0px;
+}
+.findhome-blog-social,.findhome-blog-social ul                     { float: right;}
+.findhome-tags a {
+    float: left;
+    margin: 0px 12px 0px 0px;
+    padding: 3px 0 0;
+    color: #515151;
+}
+.findhome-blog-social > i { margin: 0px 20px 0px 0px;}
+.findhome-blog-social ul li {
+    float: left;
+    list-style: none;
+    margin: 0px 0px 0px 10px;
+}
+.findhome-blog-social ul li:first-child { margin: 0px;}
+.findhome-blog-social ul li a {
+    float: left;
+    width: 20px;
+    height:20px;
+    background-color: #cccccc;
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 22px;
+    text-align: center;
+}
+/*next-prev post*/
+.findhome-prenxt-post,.findhome-prev-post,.findhome-next-post,.findhome-prenxt-post figure a img,
+.findhome-prev-post figure > a,.findhome-next-post figure > a,.findhome-prev-post-text,.findhome-next-post-text {
+    float: left;
+    width: 100%;
+}
+.findhome-prenxt-post { margin: 0px 0px 20px;}
+.findhome-prenxt-post ul { margin: 0px -15px;}
+.findhome-prenxt-post ul li {
+    float: left;
+    list-style: none;
+    width: 50%;
+    padding: 0px 15px;
+    margin: 0px 0px 50px;
+}
+.findhome-prev-post,.findhome-next-post { border: 1px solid #ececec;}
+.findhome-prenxt-post figure > a { position: relative;}
+.findhome-prenxt-post figure > a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+}
+.findhome-prenxt-post figure {
+    float: left;
+    width: 100%;
+    margin: 0px;
+}
+.findhome-prev-post figure figcaption,.findhome-next-post figure figcaption {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding: 0px 30px 25px;
+}
+.findhome-prenxt-post figure > a {
+    position: relative;
+    opacity: 0;
+}
+.findhome-prenxt-post ul li:hover figure > a { opacity: 1;}
+.findhome-prev-post-text h6,.findhome-next-post-text h6 {
+    font-weight: 600;
+    float: left;
+    margin: 0px 0px 1px;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+.findhome-prev-post-text h6 a,.findhome-next-post-text h6 a { color: #808285; }
+.findhome-prenxt-post ul li:hover .findhome-prev-post-text h6 a,
+.findhome-prenxt-post ul li:hover .findhome-next-post-text h6 a { color: #ffffff;}
+.findhome-prev-post h6 {
+    text-align: right;
+    float: right;
+}
+.findhome-post-arrow {
+    float: left;
+    font-size: 12px;
+    line-height: 1;
+    padding: 7px 13px 6px;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: 0px 0px 10px;
+}
+.findhome-post-arrow i {
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+.findhome-prev-post .findhome-post-arrow {
+    text-align: right;
+    float: right;
+}
+.findhome-next-post .findhome-post-arrow i {
+    float: right;
+    margin: 0px 0px 0px 10px;
+}
+/*Section Heading*/
+.findhome-section-heading {
+    float: left;
+    width: 100%;
+    line-height: 0.8;
+    padding: 0px 0px 13px;
+    margin: 0px 0px 40px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    position: relative;
+}
+
+.findhome-section-heading:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    width: 20px;
+    height: 1px;
+}
+.findhome-section-heading:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 20px;
+    height: 1px;
+}
+/*Blog List*/
+.findhome-blog-list figure a img,.findhome-blog-list figure a {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-list figure {
+    float: left;
+    width: 250px;
+    margin: 0px;
+}
+.findhome-blog-list figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-blog-list figure a:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 30%;
+    height: 100%;
+    opacity: 0;
+}
+.findhome-blog-list ul li:hover figure a:before {
+    opacity: 0.8;
+    width: 100%;
+}
+.findhome-blog-list figure a i {
+    position: absolute;
+    right: 0%;
+    bottom: 50%;
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    z-index: 1;
+    font-size: 16px;
+    opacity: 0;
+    padding: 20px 0px 0px;
+    margin: 0px -28px -28px 0px;
+}
+.findhome-blog-list ul li:hover figure a i {
+    right: 50%;
+    opacity: 1;
+}
+.findhome-blog-list figure time {
+    position: absolute;
+    left: -10px;
+    z-index: 1;
+    top: 10px;
+    color: #ffffff;
+    padding: 4px 14px 5px;
+    line-height: 1.5;
+}
+.findhome-blog-list ul li:hover figure time {
+    opacity: 0;
+    top: 0px;
+}
+.findhome-blog-list figure time:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    border-top: 10px solid #013760;
+    border-left: 10px solid transparent;
+}
+.findhome-blog-list figure ~ .findhome-blog-list-text {
+    margin: 0px 0px 0px 250px;
+    padding: 23px 25px 30px 30px;
+    border-left: none;
+}
+.findhome-blog-list-text { border: 1px solid #ececec;}
+.findhome-blog-list-text h5 {
+    font-weight: 600;
+    margin: 0px;
+}
+.findhome-blog-list-text h5 a { color: #808285;}
+.findhome-blog-list-text .findhome-thumb-option {
+    width: 100%;
+    margin: 0px 0px 13px;
+}
+.findhome-blog-list-text .findhome-thumb-option li { margin: 0px 25px 0px 0px;}
+.findhome-blog-list-text .findhome-thumb-option li a { font-size: 12px;}
+.findhome-blog-list-text p {
+    margin: 0px 0px 21px;
+    line-height: 26px;
+}
+.findhome-classic-btn {
+    display: inline-block;
+    padding: 1px 13px;
+    color: #888888;
+    background-color: #eeeeee;
+}
+.findhome-blog-list ul li:hover .findhome-classic-btn { color: #ffffff;}
+.findhome-blog-list-tags {
+    float: right;
+    margin: 0px;
+}
+.findhome-blog-list-tags li {
+    float: left;
+    margin: 0px 0px 0px 19px;
+    list-style: none;
+}
+.findhome-blog-list-tags li:first-child { margin: 0px;}
+.findhome-blog-list-tags li a {
+    color: #888888;
+}
+/*comment area*/
+.comments-area,.comment-list,.comment-list li,.comment-list li figure a img,.comment-list > ul > li,.comment-list .thumblist,
+.comment-list li img,.thumb-list {
+    float: left;
+    width: 100%;
+}
+.thumb-list { margin-bottom: 40px;}
+.comment-list .children { margin: 0px;}
+.comment-list .children li .thumb-list {
+    padding-left: 40px;
+}
+.comment-list > ul > li {
+    margin: 0px 0px 0px 0px;
+    list-style: none;
+}
+.comment-list .thumblist > ul                      {margin: 0px;}
+.comment-list li                                   {list-style: none;}
+.comment-list li figure {
+    float: left;
+    margin: 0px;
+    width: 80px;
+    text-align: center;
+}
+.comment-list li figure img { margin: 0px 0px 7px;}
+.comment-list > li .thumb-list {
+    border-bottom: 1px solid #ececec;
+    padding: 0px 0px 40px;
+}
+.comment-list > li:last-child .thumb-list {
+    margin: 0px;
+    border-bottom: none;
+    padding: 0px;
+}
+.comment-list figure ~ .text-holder {
+    margin-left: 80px;
+    position: relative;
+    padding: 0px 0px 18px 30px;
+    line-height: 1;
+}
+.text-holder p {
+    margin-bottom: 0px;
+    display: inline-block;
+    letter-spacing: 0.6px;
+    line-height: 26px;
+}
+.text-holder h6 {
+    line-height: 1.1;
+    float: left;
+    margin: -3px 0px 19px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+}
+.text-holder .post-date {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 1;
+    margin: 0px 0px 13px 15px;
+    font-weight: 300;
+}
+.text-holder .post-date i { margin: 0px 4px 0px 0px;}
+.comment-reply-link {
+    display: inline-block;
+    font-size: 10px;
+    color: #ffffff;
+    line-height: 1.5;
+    padding: 5px 16px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.comment-reply-link i { font-size: 9px; margin: 0px 0px 0px 3px;}
+.comment-list { margin: 0px 0px 42px;}
+/* form*/
+.comment-respond,.findhome-full-form textarea {
+    float: left;
+    width: 100%;
+}
+.comments-area { margin-top: 8px;}
+.comment-respond { margin: 0px 0px 23px;}
+.comment-respond form { margin: 0px -15px;}
+.comment-respond form p {
+    list-style-type: none;
+    margin-bottom: 30px;
+    padding: 0 15px 0;
+    width: 50%;
+}
+.comment-respond form p i {
+    position: absolute;
+    right: 31px;
+    bottom: 18px;
+    font-size: 12px;
+    color: #999999;
+}
+.comment-respond form > .findhome-full-form > i {
+    bottom: auto;
+    top: 14px;
+}
+.comment-respond form p input[type="text"],
+.comment-respond form p input[type="email"] {
+    background-color: #f5f5f5;
+    color: #808285;
+    float: left;
+    height: 45px;
+    margin: 0;
+    padding-left: 20px;
+    width: 100%;
+}
+.comment-respond form > .findhome-full-form { width: 100%;}
+.findhome-full-form textarea {
+    height: 200px;
+    color: #2e3033;
+    padding-left: 20px;
+    padding-top: 15px;
+    background-color: #f5f5f5;
+}
+.comment-respond form p input[type="submit"] {
+    display: inline-block;
+    border: none;
+    padding: 11px 14px 10px;
+    color: #ffffff;
+    font-weight: 600;
+    position: relative;
+}
+.comment-respond label {
+    float: left;
+    margin: 0px;
+    position: relative;
+}
+.comment-respond label:before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 100%;
+    height: 100%;
+}
+.comment-respond label:hover:before {
+    bottom: 0px;
+    right: 0px;
+}
+/*Widget*/
+.findhome-main-content .widget {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 50px;
+}
+.findhome-widget-heading {
+    margin: 0px 0px 30px;
+    font-size: 20px;
+    position: relative;
+    line-height: 0.7;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    padding: 0px 0px 13px;
+}
+.findhome-widget-heading:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    width: 20px;
+    height: 1px;
+}
+.findhome-widget-heading:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 20px;
+    height: 1px;
+}
+/* widget Search*/
+.widget_search form,.widget_search form input[type="text"] {
+    float: left;
+    width: 100%;
+}
+.widget_search form { position: relative;}
+.widget_search form:before {
+    content: '';
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+}
+.widget_search form input[type="text"] {
+    height: 50px;
+    background-color: #f5f5f5;
+    font-size: 15px;
+    color: #808285;
+    padding-left: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+.widget_search form label {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 0px;
+}
+.widget_search form label:before {
+    content: "\f002";
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: #808285;
+    font-family: FontAwesome;
+    cursor: pointer;
+}
+.widget_search form label input[type="submit"] {
+    height: 50px;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+}
+/*widget_cetagories*/
+.widget_cetagories ul,.widget_cetagories ul li {
+    float: left;
+    width: 100%;
+}
+.widget_cetagories ul li {
+    list-style: none;
+    margin: 0px 0px 27px;
+    line-height: 0.8;
+}
+.widget_cetagories ul li:last-child { margin: 0px;}
+.widget_cetagories ul li a i {
+    float: left;
+    margin: -1px 19px 0px 0px;
+}
+.widget_cetagories ul li a {
+    font-size: 15px;
+    display: inline-block;
+    color: #808285;
+}
+.widget_cetagories ul li:hover a { padding: 0px 0px 0px 5px;}
+/*widget_recent_post*/
+.widget_recent_post ul,.widget_recent_post ul li,.widget_recent_post figure a,.widget_recent_post figure a img {
+    float: left;
+    width: 100%;
+}
+.widget_recent_post ul li {
+    list-style: none;
+    margin: 0px 0px 24px;
+}
+.widget_recent_post ul li:last-child { margin: 0px;}
+.widget_recent_post figure {
+    float: left;
+    width: 65px;
+    margin: 0px;
+}
+.widget_recent_post figure a {
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.widget_recent_post figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    opacity: 0;
+}
+.widget_recent_post ul li:hover figure a:before { opacity: 0.8;}
+.widget_recent_post figure a i {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0px 0px -8px -5px;
+    opacity: 0;
+}
+.widget_recent_post ul li:hover figure a i { opacity: 1;}
+.widget_recent_post figure ~ .widget_recent_post_text {
+    padding: 0px 0px 0px 80px;
+    margin: -2px 0px 0px;
+}
+.widget_recent_post_text h6 {
+    font-size: 15px;
+    margin: 0px;
+    line-height: 22px;
+    font-weight: 600;
+}
+.widget_recent_post_text h6 a { color: #808285;}
+.widget_recent_post_text time { font-size: 13px;}
+/*widget_calendar_archives*/
+.widget_cetagories.widget_calendar_archives i { font-size: 12px; margin-top: 1px;}
+/*widget_find_property*/
+.widget_find_property ul,.widget_find_property ul li,.widget_find_property figure a,.widget_find_property figure a img {
+    float: left;
+    width: 100%;
+}
+.widget_find_property ul li {
+    list-style: none;
+    margin: 0px 0px 25px;
+}
+.widget_find_property ul li:last-child { margin: 0px;}
+.widget_find_property figure {
+    float: left;
+    width: 80px;
+    margin: 5px 0px 0px;
+}
+.widget_find_property figure a {
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.widget_find_property figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    opacity: 0;
+}
+.widget_find_property ul li:hover figure a:before { opacity: 0.8;}
+.widget_find_property figure a i {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0px 0px -8px -5px;
+    opacity: 0;
+}
+.widget_find_property ul li:hover figure a i { opacity: 1;}
+.widget_find_property figure ~ .widget_find_property_text {
+    padding: 0px 0px 0px 99px;
+    margin: -6px 0px 0px;
+}
+.widget_find_property_text h6 {
+    font-size: 15px;
+    margin: 0px;
+    line-height: 22px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+.widget_find_property_text h6 a { color: #808285;}
+.widget_find_property_text small {
+    display: inline-block;
+    margin: 0px 0px 9px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #ca1f6f;
+    color: #ffffff;
+    border-radius: 5px;
+    line-height: 1;
+    padding: 4px 10px 4px;
+}
+.widget_find_property_text span {
+    font-size: 12px;
+    font-weight: 600;
+}
+/*widget_gallery*/
+.widget_gallery ul li figure,.widget_gallery ul li figure a,.widget_gallery ul li figure a img {
+    float: left;
+    width: 100%;
+}
+.widget_gallery ul { margin: 0px -10px 0px 0px;}
+.widget_gallery ul li {
+    float: left;
+    list-style: none;
+    width: 33.333%;
+    margin: 0px;
+    padding: 0px 10px 10px 0px;
+}
+.widget_gallery figure a {
+    position: relative;
+    overflow: hidden;
+}
+.widget_gallery figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    opacity: 0;
+}
+.widget_gallery ul li:hover figure a:before { opacity: 0.8;}
+.widget_gallery figure a i {
+    position: absolute;
+    left: 30%;
+    bottom: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0px 0px -8px -5px;
+    opacity: 0;
+}
+.widget_gallery ul li:hover figure a i {
+    opacity: 1;
+    left: 50%;
+}
+/*Blog Large*/
+.findhome-blog-large > figure,.findhome-blog-large ul li > figure > a,.findhome-blog-large > figure > a > img {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-large > figure { margin: 0px;}
+.findhome-blog-large figure > i {
+    position: absolute;
+    left: 50%;
+    top: 172px;
+    color: #ffffff;
+    font-size: 60px;
+    margin: 0px 0px 0px -27px;
+}
+.findhome-blog-large ul li:hover figure > i { opacity: 0;}
+.findhome-blog-large ul li > figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-blog-large > figure > a .img-transparent { opacity: 0.3;}
+.findhome-blog-large ul li > figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    opacity: 0;
+}
+.findhome-blog-large ul li:hover figure a:before { opacity: 0.7;}
+.findhome-blog-large ul li > figure a i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: -27px 0px 0px -26px;
+    opacity: 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    padding: 21px 0px 0px;
+}
+.findhome-blog-large ul li:hover figure a i { opacity: 1;}
+.findhome-blog-large-wrap {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-large-wrap figure {
+    float: left;
+    width: 70px;
+    margin: 0px;
+    text-align: center;
+}
+.findhome-blog-large-wrap > figure > a {
+    display: inline-block;
+    width: 40px;
+    margin: 0px 0px 5px;
+}
+.findhome-blog-large-wrap > figure a img { border-radius: 100%;}
+.findhome-blog-large-wrap > figure figcaption { line-height: 1;}
+.findhome-blog-large-wrap > figure figcaption h6 {
+    font-weight: 600;
+    margin: 0px;
+    letter-spacing: 0.5px;
+}
+.findhome-blog-large .findhome-thumb-heading { margin: 0px 0px 30px;}
+.findhome-blog-large-wrap > figure figcaption span { font-size: 10px;}
+.findhome-blog-large-wrap > figure ~ .findhome-blog-large-text { padding: 0px 0px 0px 100px;}
+.findhome-blog-large-text p {
+    line-height: 26px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 21px;
+}
+.findhome-blog-large ul li:hover .findhome-modern-btn { color: #ffffff;}
+.findhome-modern-btn {
+    font-size: 14px;
+    padding: 7px 28px 5px;
+    display: inline-block;
+    color: #808285;
+    background-color: #eeeeee;
+    position: relative;
+    margin: 0px 0px 3px;
+}
+.findhome-modern-btn:before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    background-color: #dddddd;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+/*pagination*/
+.findhome-pagination,.findhome-pagination > ul {
+    float: left;
+    width: 100%;
+}
+.findhome-pagination {
+    margin: 30px 0 45px;
+    text-align: center;
+}
+.findhome-pagination > ul > li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 11px 0 0;
+}
+.findhome-pagination > ul > li > .previous,
+.findhome-pagination > ul > li > .next {
+    background-color: #f5f5f5;
+    line-height: 1.5;
+}
+.findhome-pagination > ul > li > a:hover,.findhome-pagination > ul > li > span.current {
+    color: #fff;
+}
+.findhome-pagination > ul > li > a,.findhome-pagination > ul > li > span {
+    background-color: #f5f5f5;
+    color: #808285;
+    font-size: 12px;
+    float: left;
+    font-weight: 600;
+    height: 35px;
+    line-height: 1.6;
+    padding: 8px 11px;
+    width: 35px;
+}
+/*pagination*/
+/*Blog Medium*/
+.findhome-blog-medium figure a,.findhome-blog-medium figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-blog-medium figure {
+    float: left;
+    width: 263px;
+    margin: 0px;
+    padding: 30px 0px;
+}
+.findhome-blog-medium figure > i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 50px;
+    color: #ffffff;
+    margin: -27px 0px 0px -27px;
+    z-index: 1;
+}
+.findhome-blog-medium figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-blog-medium figure a .img-transparent { opacity: 0.3;}
+.findhome-blog-medium figure a:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 0%;
+    bottom: 0px;
+    opacity: 0;
+    z-index: 1;
+}
+.findhome-blog-medium ul li:hover figure a:before {
+    opacity: 0.7;
+    width: 100%;
+}
+.findhome-blog-medium figure a i {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: -27px 0px 0px -27px;
+    opacity: 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    padding: 21px 0px 0px;
+}
+.findhome-blog-medium ul li:hover figure a i {
+    opacity: 1;
+    left: 50%;
+}
+.findhome-blog-medium figure ~ .findhome-blog-medium-text {
+    background-color: #f5f5f5;
+    padding: 36px 30px 39px 263px;
+    margin: 0px 0px 0px 30px;
+}
+.findhome-blog-medium-text h5 {
+    margin: 0px 0px 1px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+.findhome-blog-medium-text p {
+    margin: 0px 0px 22px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-blog-medium-text .findhome-thumb-option { margin: 0px 0px 13px;}
+.findhome-blog-medium-text .findhome-classic-btn { background-color: #eaeaea;}
+.findhome-blog-medium ul li:hover .findhome-classic-btn { color: #ffffff;}
+/*Listing Detail*/
+.findhome-listing-thumb-heading {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 23px;
+}
+.findhome-listing-thumb-heading h2 {
+    font-size: 20px;
+    float: left;
+    margin: 0px 0px 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.findhome-listing-thumb-heading p {
+    float: left;
+    width: 85%;
+    margin: 0px;
+}
+.findhome-listing-thumb-heading p i { margin: 0px 6px 0px 0px;}
+.findhome-listing-thumb-heading span {
+    float: right;
+    position: relative;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 9px 16px 10px;
+}
+.findhome-listing-thumb-heading span:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top: 12px solid;
+    border-left: 12px solid transparent;
+}
+/*Gallery*/
+.findhome-listing-slider,.findhome-images-thumb span,.findhome-images-thumb span img,.findhome-images-thumb {
+    float: left;
+    width: 100%;
+}
+.findhome-listing-slider { margin: 0px 0px 52px;}
+.findhome-images-thumb span {
+    margin: 0px 0px 30px;
+    position: relative;
+}
+.findhome-images-thumb span:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+}
+.findhome-images-list {
+    float: left;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding: 0px 31px;
+}
+.findhome-images-list-layer > span {
+    margin: 0px 0px 12px 0px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+.findhome-images-list-layer.slick-slide.slick-current.slick-active > span:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+.findhome-images-list .slick-arrow {
+    position: absolute;
+    cursor: pointer;
+    padding-top: 63px;
+    width: 30px;
+    height: 140px;
+    right: 0px;
+    text-align: center;
+    top: 0%;
+    line-height: 0.6;
+    font-size: 15px;
+    z-index: 1;
+    color: #808285;
+    background-color: #f5f5f5;
+}
+.findhome-images-list .slick-arrow:hover { color: #ffffff;}
+.findhome-images-list .slick-arrow.slick-arrow-left { right: auto; left: 0px;}
+/*findhome-specifications*/
+.findhome-specifications {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 38px;
+}
+.findhome-specifications li {
+    float: left;
+    list-style: none;
+    width: 33.333%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin: 0px 0px 28px;
+}
+.findhome-specifications li span {
+    font-weight: normal;
+    margin: 0px 0px 0px 10px;
+}
+/*findhome-features*/
+.findhome-features {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 42px;
+}
+.findhome-features li {
+    float: left;
+    width: 33.333%;
+    list-style: none;
+    margin: 0px 0px 24px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+.findhome-features li i {
+    font-size: 12px;
+    margin: 0px 11px 0px 0px;
+}
+/* Shop Tabs */
+.findhome-floor-tabs,.findhome-floor-info,.findhome-floor-info figure,.findhome-video-promo,.findhome-property-location,
+.findhome-video-promo ul li {
+    float: left;
+    width: 100%;
+}
+.findhome-floor-tabs { margin: 0px 0px 65px;}
+.findhome-floor-tabs p {
+    margin: 0px 0px 31px;
+    line-height: 26px;
+    letter-spacing: 0.6px;
+}
+.findhome-floor-tabs .nav-tabs {
+    float: left;
+    width: 100%;
+    border-radius: 0px;
+    border: none;
+}
+.findhome-floor-tabs .nav-tabs li {
+    list-style: none;
+    line-height: 1;
+    margin: 0 0px 0 0;
+    text-align: center;
+    position: relative;
+}
+.findhome-floor-tabs .nav-tabs > li.active > a,
+.findhome-floor-tabs .nav-tabs > li.active > a:hover,
+.findhome-floor-tabs .nav-tabs > li.active > a:focus {
+    color: #ffffff;
+    border: none;
+}
+.findhome-floor-tabs .nav-tabs li a {
+    display: inline-block;
+    padding: 6px 26px 6px;
+    font-size: 16px;
+    position: relative;
+    border: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 0;
+}
+.findhome-floor-tabs .tab-content {
+    display: inline-block;
+    width: 100%;
+    padding-top: 50px;
+}
+.findhome-floor-info {
+    border-bottom: 1px solid #ececec;
+    padding: 0px 0px 21px;
+}
+.findhome-floor-info figure {
+    text-align: center;
+    margin: 0px 0px 38px;
+}
+.findhome-floor-info ul {
+    float: right;
+    margin: 0px;
+}
+.findhome-floor-info ul li {
+    float: left;
+    list-style: none;
+    margin: 0px 0px 0px 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.findhome-floor-info ul li:first-child { margin: 0px;}
+.findhome-property-location { margin: 0px 0px 68px;}
+.findhome-property-location #map {
+    height: 400px;
+    width: 100%;
+}
+/*findhome-video-promo*/
+.findhome-video-promo ul li {
+    list-style: none;
+    margin: 0px 0px 68px;
+}
+/*findhome-attachment-file*/
+.findhome-attachment-file {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 68px;
+}
+.findhome-attachment-file ul {
+    float: left;
+    background-color: #f5f5f5;
+    padding: 29px 30px 32px;
+}
+.findhome-attachment-file ul li {
+    float: left;
+    list-style: none;
+    line-height: 1;
+    margin: 0px 29px 0px 0px;
+}
+.findhome-attachment-file ul li:last-child { margin: 0px;}
+.findhome-attachment-file figure {
+    float: left;
+    width: 25px;
+    margin: 4px 0px 0px;
+}
+.findhome-attachment-file figure ~ h6 { padding: 0px 0px 0px 55px;}
+.findhome-attachment-file figure ~ a { margin: 0px 0px 0px 30px;}
+.findhome-attachment-file h6 {
+    margin: 0px 0px 3px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.findhome-attachment-file h6 > a {
+    float: none;
+    color: #808285;
+    font-size: 14px;
+    border-bottom: none;
+}
+.findhome-attachment-file a {
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+}
+/*listing list*/
+.findhome-listing-list figure a,.findhome-listing-list figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-listing-list .findhome-section-heading { text-align: left;}
+.findhome-listing-list figure {
+    float: left;
+    width: 250px;
+    margin: 0px;
+}
+.findhome-listing-list figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-listing-list figure a .img-transparent { opacity: 0.3;}
+.findhome-listing-list figure a:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 0%;
+    top: 0px;
+    opacity: 0;
+    z-index: 1;
+}
+.findhome-listing-list ul li:hover figure a:before {
+    opacity: 0.7;
+    width: 100%;
+}
+.findhome-listing-list figure a i {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: -27px 0px 0px -27px;
+    opacity: 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    padding: 21px 0px 0px;
+}
+.findhome-listing-list ul li:hover figure a i {
+    opacity: 1;
+    left: 50%;
+}
+.findhome-listing-list figure ~ .findhome-listing-list-wrap {
+    margin: 0px 0px 0px 250px;
+    padding: 22px 0px 0px 0px;
+}
+.findhome-listing-list-wrap { background-color: #f5f5f5;}
+.findhome-listing-list-text {
+    display: inline-block;
+    width: 100%;
+    padding: 0px 20px 0px 30px;
+}
+.findhome-listing-list-text h5 {
+    font-weight: 600;
+    margin: 0px;
+}
+.findhome-listing-list-text span {
+    font-size: 12px;
+    display: inline-block;
+    margin: 0px 0px 13px;
+}
+.findhome-listing-list-text span i { margin: 0px 6px 0px 0px;}
+.findhome-listing-list-text p {
+    margin: 0px 0px 23px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-listing-list-wrap .findhome-listing-option {
+    background-color: transparent;
+    padding: 0px;
+}
+.findhome-listing-list-wrap .findhome-listing-option li a { color: #808285;}
+.findhome-listing-list-wrap .findhome-listing-option li a:before {
+    background-color: #808285;
+    top: 2px;
+}
+.findhome-listing-list-wrap .findhome-user-post h6 { float: right;}
+/*findhome-listing-grid*/
+.findhome-listing-grid figure,.findhome-listing-grid figure a,.findhome-listing-grid figure a img,
+.findhome-listing-grid-text {
+    float: left;
+    width: 100%;
+}
+.findhome-listing-grid figure { margin: 0px;}
+.findhome-listing-grid figure > a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-listing-grid figure > span {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #ffffff;
+    background-color: #e63355;
+    border-radius: 5px;
+    z-index: 1;
+    line-height: 1;
+    padding: 5px 14px 4px;
+    font-size: 12px;
+}
+.findhome-listing-grid figure > span.color-one { background-color: #7733e6;}
+.findhome-listing-grid figure > span.color-two { background-color: #337be6;}
+.findhome-listing-grid figure > span.color-three { background-color: #21d9ce;}
+.findhome-listing-grid figure > span.color-four { background-color: #97c717;}
+.findhome-listing-grid figure > span.color-five { background-color: #e66e33;}
+.findhome-listing-grid figure > span.color-six { background-color: #e71ca2;}
+.findhome-listing-grid-text {
+    background-color: #f5f5f5;
+    padding: 20px 20px 21px 30px;
+    position: relative;
+}
+.findhome-listing-grid-text.heading:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-bottom: 20px solid;
+    border-left: 20px solid transparent;
+}
+.findhome-listing-grid-text .findhome-listing-option {
+    padding: 0px;
+    width: 100%;
+    background-color: transparent;
+    margin: 0px 0px 12px;
+}
+.findhome-listing-grid-text .findhome-listing-option li a { color: #808285;}
+.findhome-listing-grid-text .findhome-listing-option li a i { margin: 11px 16px 0px 0px;}
+.findhome-listing-grid-text .findhome-listing-option li a:before { top: 3px; background-color: #bbbbbb;}
+.findhome-listing-grid-text h6 {
+    font-weight: 600;
+    margin: 0px 0px 15px;
+    line-height: 0.8;
+}
+.findhome-listing-grid-text span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 0px;
+    line-height: 1;
+}
+.findhome-listing-grid-text span i {
+    margin: 0px 10px 0px 0px;
+    float: left;
+}
+.findhome-listing-grid-text p {
+    margin: 0px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-listing-tabs .tooltip-inner,.widget_text .tooltip-inner {
+    background-color: #dedede;
+    color: #363636;
+    font-size: 10px;
+    border-radius: 0px;
+}
+.findhome-listing-tabs .tooltip.top .tooltip-arrow,.widget_text .tooltip.top .tooltip-arrow { border-top-color: #dedede;}
+/*Property Grid*/
+.findhome-property,.findhome-property-grid figure,.findhome-property-grid figure a,.findhome-property-grid figure a img,
+.findhome-property-grid-text,.findhome-property-grid-wrap {
+    float: left;
+    width: 100%;
+}
+.findhome-property > ul > li {
+    margin: 0px 0px 30px;
+    list-style: none;
+}
+.findhome-property-grid figure {
+    margin: 0px;
+    padding: 0px 20px 0px 0px;
+}
+.findhome-property-grid ul li:hover figure { padding: 0px 0px 0px 20px;}
+.findhome-property-grid figure:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    width: 25px;
+    height: 92%;
+    background-color: #f5f5f5;
+    bottom: 0px;
+}
+.findhome-property-grid figure > span.color-one { background-color: #7733e6;}
+.findhome-property-grid figure > span.color-two { background-color: #337be6;}
+.findhome-property-grid figure > span.color-three { background-color: #21d9ce;}
+.findhome-property-grid figure > span.color-four { background-color: #97c717;}
+.findhome-property-grid figure > span.color-five { background-color: #e66e33;}
+.findhome-property-grid figure > span.color-six { background-color: #e71ca2;}
+.findhome-property-grid figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-property-grid-text .findhome-listing-option {
+    padding: 0px;
+    width: 100%;
+    background-color: transparent;
+}
+.findhome-property-grid-text .findhome-listing-option li a { color: #808285;}
+.findhome-property-grid-text .findhome-listing-option li a i { margin: 11px 16px 0px 0px;}
+.findhome-property-grid-text .findhome-listing-option li a:before { top: 3px; background-color: #bbbbbb;}
+.findhome-property-grid-text {
+    background-color: #f5f5f5;
+    padding: 24px 20px 22px 30px;
+    position: relative;
+}
+.findhome-property-grid-wrap { padding: 0px 0px 0px 20px;}
+.findhome-property-grid-text h6 {
+    font-weight: 600;
+    margin: 0px 0px 1px;
+}
+.findhome-property-grid-text span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 9px;
+}
+.findhome-property-grid-text span i {
+    margin: 8px 10px 0px 0px;
+    float: left;
+}
+.findhome-property-grid figure > span {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    color: #ffffff;
+    background-color: #e63355;
+    border-radius: 5px;
+    z-index: 1;
+    line-height: 1;
+    padding: 5px 14px 4px;
+    font-size: 12px;
+}
+.findhome-property-grid ul li:hover figure > span { opacity: 0;}
+.findhome-property-grid figure a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+}
+.findhome-property-grid ul li:hover figure a:before {
+    height: 100%;
+    opacity: 0.85;
+}
+.findhome-property-grid figure a i {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    width: 55px;
+    height: 55px;
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 100%;
+    padding: 20px 0px 0px;
+    margin: 0px 0px -27px -27px;
+    opacity: 0;
+}
+.findhome-property-grid ul li:hover figure a i { opacity: 1;}
+/*Property List*/
+.findhome-property-list figure a,.findhome-property-list figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-property-list figure {
+    float: left;
+    width: 360px;
+    margin: 0px;
+    padding: 30px 0px;
+}
+.findhome-property-list figure > span {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    color: #ffffff;
+    background-color: #e633ad;
+    border-radius: 5px;
+    z-index: 1;
+    line-height: 1;
+    padding: 5px 14px 4px;
+    font-size: 12px;
+}
+.findhome-property-list ul li:hover figure > span { opacity: 0;}
+.findhome-property-list figure > span.color-one { background-color: #8333e6;}
+.findhome-property-list figure > span.color-two { background-color: #cf792d;}
+.findhome-property-list figure > span.color-three { background-color: #e63355;}
+.findhome-property-list figure > span.color-four { background-color: #2dcfcd;}
+.findhome-property-list figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-property-list figure a:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 0%;
+    bottom: 0px;
+    opacity: 0;
+    z-index: 1;
+}
+.findhome-property-list ul li:hover figure a:before {
+    opacity: 0.7;
+    width: 100%;
+}
+.findhome-property-list figure a i {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: -27px 0px 0px -27px;
+    opacity: 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    padding: 21px 0px 0px;
+}
+.findhome-property-list ul li:hover figure a i {
+    opacity: 1;
+    left: 50%;
+}
+.findhome-property-list figure ~ .findhome-property-list-text {
+    background-color: #f5f5f5;
+    padding: 29px 30px 34px 360px;
+    margin: 0px 0px 0px 30px;
+}
+.findhome-property-list-text span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 13px;
+}
+.findhome-property-list-text span i {
+    margin: 8px 8px 0px 0px;
+    float: left;
+}
+.findhome-property-list-text h5 {
+    margin: 0px 0px 0px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+}
+.findhome-property-list-text p {
+    margin: 0px 0px 9px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-property-list-text .findhome-listing-option {
+    padding: 0px;
+    width: 100%;
+    background-color: transparent;
+    margin: 0px 0px 20px;
+}
+.findhome-property-list-text .findhome-listing-option li a { color: #808285;}
+.findhome-property-list-text .findhome-listing-option li a i { margin: 11px 16px 0px 0px;}
+.findhome-property-list-text .findhome-listing-option li a:before { top: 3px; background-color: #bbbbbb;}
+.findhome-property-list .findhome-classic-btn {
+    font-weight: 600;
+    position: relative;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+    padding: 4px 20px 3px;
+}
+.findhome-property-list .findhome-classic-btn:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top: 10px solid;
+    border-left: 10px solid transparent;
+}
+/*Agent List*/
+.findhome-team,.findhome-team-list figure a,.findhome-team-list figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-team > ul > li{
+    list-style: none;
+    margin: 0px 0px 30px;
+}
+.findhome-team-list figure {
+    float: left;
+    width: 293px;
+    margin: 0px;
+    padding: 30px 0px;
+}
+.findhome-team-list figure a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-team-list figure a .img-transparent { opacity: 0.25;}
+.findhome-team-list figure a:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 0%;
+    bottom: 0px;
+    opacity: 0;
+    z-index: 1;
+}
+.findhome-team-list ul li:hover figure a:before {
+    opacity: 0.80;
+    width: 100%;
+}
+.findhome-team-list figure a i {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    margin: -27px 0px 0px -27px;
+    opacity: 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    padding: 21px 0px 0px;
+}
+.findhome-team-list ul li:hover figure a i {
+    opacity: 1;
+    left: 50%;
+}
+.findhome-team-list figure ~ .findhome-team-list-text {
+    background-color: #f5f5f5;
+    padding: 38px 30px 45px 293px;
+    margin: 0px 0px 0px 30px;
+}
+.findhome-team-list-text span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    margin: 0px 0px 20px;
+    line-height: 1;
+}
+.findhome-team-list-text h5 {
+    margin: 0px 0px 0px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+.findhome-team-list-text p {
+    margin: 0px 0px 22px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-team-list .findhome-classic-btn {
+    font-weight: 600;
+    position: relative;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+    padding: 4px 20px 3px;
+}
+.findhome-team-list .findhome-classic-btn:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-top: 10px solid;
+    border-left: 10px solid transparent;
+}
+.agent-list-option { float: right;}
+.agent-list-option li {
+    float: left;
+    list-style: none;
+    margin: 0px 0px 0px 11px;
+}
+.agent-list-option li a {
+    color: #808285;
+    font-size: 12px;
+}
+/*findhome-about-us*/
+.findhome-about-us,.findhome-about-us ul,.findhome-about-img {
+    float: left;
+    width: 100%;
+}
+.findhome-about-img { position: relative;}
+.findhome-about-us .findhome-fancy-title {
+    text-align: left;
+    margin: 0px 0px 30px;
+}
+.findhome-about-us .findhome-fancy-shape { text-align: center;}
+.findhome-about-us p {
+    margin: 0px 0px 23px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.findhome-about-us ul {
+    margin: 8px 0px 0px;
+    border: 1px solid #ececec;
+    border-bottom: none;
+    border-left: none;
+}
+.findhome-about-us ul li {
+    float: left;
+    width: 50%;
+    list-style: none;
+    text-align: center;
+    border-bottom: 1px solid #ececec;
+    border-left: 1px solid #ececec;
+}
+.findhome-about-us ul li a {
+    display: block;
+    padding: 29px 0px 24px;
+}
+.findhome-about-us ul li i { font-size: 24px;}
+.findhome-about-us ul li h6 {
+    line-height: 1.4;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px;
+}
+.findhome-about-img img {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+/*Gallery*/
+.findhome-gallery,.findhome-classic-gallery figure,.findhome-classic-gallery figure a,findhome-classic-gallery figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-gallery > ul > li {
+    list-style: none;
+    margin: 0px 0px 30px;
+}
+.findhome-classic-gallery figure {
+    margin: 0px;
+    overflow: hidden;
+}
+.findhome-classic-gallery figure figcaption {
+    position: absolute;
+    left: -50%;
+    top: 0px;
+    background: url(images/gallery-transpernt.png);
+    background-position: top right;
+    width: 100%;
+    padding: 73px 80px 0px 30px;
+    height: 100%;
+    margin: 0px 0px 0px -10px;
+}
+.findhome-classic-gallery ul li:hover figure figcaption {
+    background-position: center top;
+    margin: 0px;
+    left: 0px;
+}
+.findhome-classic-gallery figure figcaption h4 {
+    font-weight: 600;
+    margin: 0px 0px 8px 0px;
+    line-height: 1.3;
+    display: inline-block;
+    text-transform: uppercase;
+    opacity: 0;
+}
+.findhome-classic-gallery ul li:hover figure figcaption h4 { opacity: 1; }
+.findhome-classic-gallery figure figcaption h4 a { color: #ffffff;}
+.findhome-classic-gallery figure figcaption p {
+    margin: 0px;
+    display: inline-block;
+    color: #ffffff;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    opacity: 0;
+}
+.findhome-classic-gallery ul li:hover figure figcaption p { opacity: 1;}
+/*findhome-modern-team*/
+.findhome-modern-team figure,.findhome-modern-team figure a,.findhome-modern-team figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-modern-team figure {
+    margin: 0px;
+    border: 1px solid #ececec;
+    text-align: center;
+    overflow: hidden;
+}
+.findhome-modern-team figure figcaption {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 11px 25px 0px;
+    border-bottom: 5px solid;
+    max-height: 70px;
+}
+.findhome-modern-team ul li:hover figure figcaption {
+    max-height: 100%;
+    border-bottom: 0px solid;
+    padding: 100px 25px 0px;
+    background: rgba(0,66,116,0.9);
+}
+.findhome-modern-team figure figcaption:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 15px;
+    width: 44px;
+}
+.findhome-modern-team ul li:hover figure figcaption:before { opacity: 0;}
+.findhome-modern-team figure figcaption:after {
+    content: '';
+    position: absolute;
+    right: 43px;
+    bottom: 0px;
+    border-bottom: 15px solid;
+    border-left: 21px solid transparent;
+}
+.findhome-modern-team ul li:hover figure figcaption:after { opacity: 0;}
+.findhome-modern-team figure figcaption h6 {
+    margin: 0px;
+    line-height: 0.8;
+    font-size: 18px;
+    display: inline-block;
+    font-weight: 600;
+}
+.findhome-modern-team ul li:hover figure figcaption h6 { font-size: 16px;}
+.findhome-modern-team figure figcaption h6 a,
+.findhome-modern-team figure figcaption p,
+.findhome-modern-team figure figcaption span { color: #ffffff;}
+.findhome-modern-team figure figcaption p {
+    margin: 0px 0px 18px;
+    letter-spacing: 0.4px;
+}
+.findhome-modern-team figure figcaption span {
+    margin: 0px 0px 21px;
+    display: block;
+    line-height: 1;
+    letter-spacing: 0.4px;
+}
+.findhome-modern-team .findhome-team-social li a { color: #ffffff;}
+/* Modern Gallery*/
+.findhome-modern-gallery figure,.findhome-modern-gallery figure > a,.findhome-modern-gallery figure a img {
+    float: left;
+    width: 100%;
+}
+.findhome-modern-gallery figure {
+    margin: 0px;
+    text-align: center;
+}
+.findhome-modern-gallery figure > a {
+    position: relative;
+    overflow: hidden;
+}
+.findhome-modern-gallery figure > a:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+.findhome-modern-gallery ul li:hover figure > a:before { opacity: 0.95;}
+.findhome-modern-gallery figure figcaption {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    width: 100%;
+    padding: 0px 30px;
+    max-height: 54px;
+    overflow: hidden;
+    margin: -27px 0px 0px;
+}
+.findhome-modern-gallery ul li:hover figure figcaption {
+    margin: -93px 0px 0px 0px;
+    max-height: 100%;
+}
+.findhome-modern-gallery figure figcaption h6 {
+    display: block;
+    margin: 0px 0px 33px;
+    font-weight: 600;
+    position: relative;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 15px 0px;
+}
+.findhome-modern-gallery figure figcaption h6:before,
+.findhome-modern-gallery figure figcaption h6:after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 0px;
+    height: 1px;
+    background-color: #ffffff;
+}
+.findhome-modern-gallery ul li:hover figure figcaption h6:before,
+.findhome-modern-gallery ul li:hover figure figcaption h6:after {
+    margin: 0px 0px 0px -52px;
+    width: 100px;
+    left: 50%;
+}
+.findhome-modern-gallery figure figcaption h6:after {
+    top: auto;
+    bottom: 0px;
+}
+.findhome-modern-gallery figure figcaption p {
+    margin: 0px;
+    line-height: 26px;
+    letter-spacing: 0.6px;
+}
+.findhome-modern-gallery figure figcaption h6 a,.findhome-modern-gallery figure figcaption p { color: #ffffff;}
+/*findhome-agent-detail*/
+.findhome-agent-detail,.findhome-agent-thumb,.findhome-agent-thumb-text,.findhome-list-style-one li,.findhome-list-style-one,
+.findhome-agent-contact,.findhome-agent-contact li {
+    float: left;
+    width: 100%;
+}
+.findhome-agent-detail { margin: 0px 0px 53px;}
+.findhome-agent-thumb {
+    margin: 0px;
+    border: 1px solid #ececec;
+}
+.findhome-agent-thumb-text { padding: 12px 0px 0px;}
+.findhome-agent-thumb-text h4 {
+    margin: 0px 0px 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.findhome-agent-thumb-text span {
+    display: inline-block;
+    margin: 0px 0px 18px;
+    font-size: 12px;
+}
+.findhome-agent-thumb-text > p {
+    margin: 0px 0px 13px;
+    letter-spacing: 0.7px;
+    line-height: 26px;
+}
+.findhome-list-style-one { margin: 0px 0px 10px;}
+.findhome-list-style-one li {
+    list-style: none;
+    letter-spacing: 0.6px;
+    padding-left: 23px;
+    position: relative;
+    margin: 0px 0px 5px;
+    color: #7c7b7b;
+}
+.findhome-list-style-one li:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #7c7b7b;
+    border-radius: 100%;
+}
+.findhome-agent-contact li {
+    list-style: none;
+    margin: 0px 0px 8px;
+}
+.findhome-agent-contact li i {
+    float: left;
+    margin: 5px 0px 0px;
+    width: 28px;
+    font-size: 16px;
+}
+.findhome-agent-contact li i ~ p { padding-left: 28px;}
+.findhome-agent-contact li p {
+    margin: 0px;
+}
+.findhome-agent-contact li p a { color: #808285;}
+/*findhome-agent-skills*/
+.findhome-agent-skills {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 46px;
+}
+.findhome-agent-skills p {
+    display: inline-block;
+    margin: 0px 0px 15px;
+    letter-spacing: 0.1px;
+}
+.findhome-agent-skills .skillst h6,
+.findhome-agent-skills .skillst > span {
+    float: left;
+    margin: 0px 0px 15px;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+    color: #363636;
+}
+.findhome-agent-skills .skillst > span { float: right;}
+/*Skillst*/
+.skillst {
+    float: left;
+    width: 100%;
+    margin-bottom: 22px;
+    position: relative;
+}
+.bar-container {
+    width: 100%;
+    float: left;
+    position:relative;
+}
+.bar-container .bar {
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.bar-container .bar:before {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -3px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: 2px solid;
+    width: 11px;
+    height: 11px;
+}
+.skillst .title,.bar-container .bar small { display: none; }
+.skillst .count{
+    float: right;
+    font-size: 12px;
+    color:#272727;
+    margin: -27px 0px 0px 0px;
+}
+/*findhome-agent-peoperties*/
+.findhome-listing.findhome-agent-peoperties > ul > li { margin: 0px 0px 30px;}
+.findhome-listing.findhome-agent-peoperties { margin: 0px 0px 38px;}
+.findhome-agent-contact-form,.findhome-agent-contact-form form,.findhome-agent-contact-form textarea,
+.findhome-agent-contact-form ul li input[type="text"],.findhome-agent-contact-form ul li input[type="email"] {
+    float: left;
+    width: 100%;
+}
+.findhome-agent-contact-form { margin: 0px 0px 20px;}
+.findhome-agent-contact-form ul { margin: 0px -15px;}
+.findhome-agent-contact-form ul li {
+    float: left;
+    width: 50%;
+    margin: 0px 0px 30px;
+    list-style: none;
+    padding: 0px 15px;
+    position: relative;
+}
+.findhome-agent-contact-form ul li i {
+    position: absolute;
+    right: 35px;
+    top: 17px;
+}
+.findhome-agent-contact-form ul li.full-form { width: 100%;}
+.findhome-agent-contact-form ul li input[type="text"],
+.findhome-agent-contact-form ul li input[type="email"] {
+    background-color: #f5f5f5;
+    color: #808285;
+    height: 45px;
+    padding-left: 20px;
+}
+.findhome-agent-contact-form textarea {
+    background-color: #f5f5f5;
+    color: #0f1114;
+    height: 200px;
+    padding-left: 20px;
+    padding-top: 14px;
+}
+.findhome-agent-contact-form label input[type="submit"] {
+    display: inline-block;
+    position: relative;
+    padding: 8px 22px;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    letter-spacing: 0.5px;
+}
+.findhome-agent-contact-form label.banner-submit {
+    float: left;
+    position: relative;
+    margin: 0px 0px 3px;
+}
+/*findhome-priceplan*/
+.findhome-priceplan,.findhome-priceplan-title,.findhome-priceplan-list,.findhome-priceplan-list ul li {
+    float: left;
+    width: 100%;
+}
+.findhome-priceplan { margin: 0px 0px 60px;}
+.findhome-priceplan > ul > li {
+    list-style: none;
+    margin: 30px 0px 50px;
+}
+.findhome-priceplan ul li:hover { margin-top: 0px;} 
+.findhome-priceplan-title {
+    position: relative;
+    overflow: hidden;
+    padding: 25px 0px 0px 77px;
+}
+.findhome-priceplan-title i {
+    position: absolute;
+    left: -11px;
+    top: -9px;
+    font-size: 81px;
+    color: #ffffff;
+    opacity: 0.12;
+}
+.findhome-priceplan-title h3 {
+    font-size: 22px;
+    margin: 0px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    float: left;
+}
+.findhome-priceplan-title h3 > span {
+    font-size: 14px;
+    text-transform: none;
+    display: block;
+}
+.findhome-priceplan-title h2 {
+    float: right;
+    margin: 0px;
+    font-weight: 600;
+    position: relative;
+    color: #ffffff;
+    padding: 19px 18px 20px 10px;
+}
+.findhome-priceplan-title h2:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0px;
+    border-bottom: 75px solid;
+    border-left: 20px solid transparent;
+}
+.findhome-priceplan-list {
+    text-align: center;
+    padding: 20px 70px 30px;
+}
+.findhome-priceplan-list ul {
+    margin: 0px 0px 20px;
+    display: inline-block;
+}
+.findhome-priceplan-list ul li {
+    padding: 22px 0px 21px;
+    list-style: none;
+    color: #ffffff;
+    font-size: 15px;
+    border-bottom: 1px solid #155585;
+}
+.findhome-priceplan ul li:hover .findhome-priceplan-list ul li { border-bottom-color: #4cb9e2;}
+.findhome-priceplan-list ul li:last-child { border-bottom: none;}
+.findhome-priceplan-btn {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 7px 32px 5px;
+}
+
+/* majid */
+
+/* contact us */
+.findhome-contact-us-map {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 110px;
+}
+.findhome-contact-map {
+    float: left;
+    width: 878px;
+}
+.findhome-contact-map #map { height: 500px;}
+.findhome-contact-info {
+    position: absolute;
+    right: 0px;
+    top: 57px;
+    width: 300px;
+    padding: 49px 30px 25px 30px; 
+}
+.findhome-contact-info:before {
+    content: "\e9bf";
+    position: absolute;
+    right: 7px;
+    top: -7px;
+    font-family: 'icomoon';
+    color: #ffffff;
+    opacity: 0.06;
+    font-size: 72px; 
+}
+.findhome-contact-info:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: -18px;
+    width: 0;
+    height: 0;
+    border-bottom: 19px solid #003862;
+    border-left: 38px solid transparent;
+}
+.findhome-contact-info .findhome-section-heading {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.findhome-contact-info .findhome-section-heading:after,
+.findhome-contact-info .findhome-section-heading:before { background-color: #ffffff;}
+.findhome-contact-info ul li {
+    float: left;
+    list-style: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.findhome-contact-info ul li i {
+    float: left;
+    font-size: 20px;
+    width: 35px;
+    color: #ffffff;
+}
+.findhome-contact-info ul li i ~ p { padding-left: 35px;}
+.findhome-contact-info ul li p,.findhome-contact-info ul li time {
+    line-height: 26px;
+    margin: -5px 0px 0px;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+}
+.findhome-contact-info ul li p a { color: #ffffff;}
+.findhome-contact-form,.findhome-contact-form form {
+    float: left;
+    width: 100%;
+}
+.findhome-contact-form { margin: 0px 0px 20px;}
+.findhome-contact-form form ul { margin: 0px -15px;}
+.findhome-contact-form form ul li {
+    float: left;
+    width: 33.3333%;
+    list-style: none;
+    padding: 0px 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.findhome-contact-form form ul li input[type="text"],
+.findhome-contact-form form ul li input[type="email"] {
+    float: left;
+    width: 100%;
+    background-color: #f5f5f5;
+    height: 45px;
+    font-size: 12px;
+    font-style: italic;
+    color: #9a9a9a;
+    padding-left: 20px;
+}
+.findhome-contact-form form ul li i {
+    position: absolute;
+    right: 36px;
+    top: 17px;
+    font-size: 12px;
+    color: #9a9a9a;
+}
+.findhome-contact-form form ul li.contact-full {
+    float: left;
+    width: 100%;
+}
+.findhome-contact-form form ul li textarea {
+    float: left;
+    width: 100%;
+    background-color: #f5f5f5;
+    height: 250px;
+    font-size: 12px;
+    font-style: italic;
+    color: #454545;
+    padding-left: 20px;
+    padding-top: 14px;
+}
+.findhome-contact-form form ul li label {
+    float: left;
+    margin: 0px 0px 3px;
+    position: relative;
+}
+.findhome-contact-form form ul li input[type="submit"] {
+    float: left;
+    position: relative;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    padding: 16px 15px 15px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+/* 404 */
+.findhome-errorpage-full {
+    padding-bottom: 0px;
+    padding-top: 27px;
+}
+.findhome-error-heading {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 30px 0px 34px;
+    border-bottom: 15px solid #00aeef;
+    position: relative;
+    margin: 93px 0 44px;
+}
+.findhome-error-heading h2 {
+    color: #ffffff;
+    font-size: 120px;
+    margin: 0px 0px 5px;
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: 4.9px;
+}
+.findhome-error-heading span {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: -4px;
+    letter-spacing: 1.4px;
+}
+.findhome-error-border {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 97px;
+    height: 30px;
+    background-color: #00aeef;
+}
+.findhome-error-border:before {
+    content: '';
+    position: absolute;
+    right: -17px;
+    top: 0px;
+    width: 0;
+    height: 0; 
+    border-bottom: 30px solid #00aeef;
+    border-right: 17px solid transparent; 
+}
+.findhome-error-border2 {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 97px;
+    height: 30px;
+    background-color: #00aeef;
+}
+.findhome-error-border2:before {
+    content: '';
+    position: absolute;
+    left: -17px;
+    top: 0px;
+    width: 0;
+    height: 0; 
+    border-bottom: 30px solid #00aeef;
+    border-left: 17px solid transparent; 
+}
+.findhome-error-page-text {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.findhome-error-page-text span {
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    color: #808285;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.findhome-error-page-text p {
+    margin: 0px 0px 21px;
+    color: #808285;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    width: 70%;
+}
+.findhome-error-btn {
+    float: left;
+    color: #ffffff;
+    padding: 13px 26px 12px;
+    border: 1px solid;
+}
+.findhome-error-btn:hover { background-color: transparent;}
+.findhome-error-pic {
+    float: left;
+    width: 100%;
+}
+.findhome-error-pic img {
+    float: right;
+    margin-right: 57px;
+}
+/* our faq */
+.findhome-faq-tabs,.findhome-faq-tabs .nav-tabs > li {
+    float: left;
+    width: 100%;
+}
+.findhome-faq-tabs .nav-tabs > li > a {
+    border: medium none;
+    background-color: #f5f5f5;
+    border-radius: 0px;
+    margin-bottom: 30px;
+    color: #aaaaaa;
+    font-weight: 600;
+    text-align: center;
+    padding: 17px 0px 15px; 
+    font-size: 16px;
+    box-shadow: 3px 3px 0px #dddddd;
+}
+.findhome-faq-tabs .nav-tabs > li.active > a,
+.findhome-faq-tabs .nav-tabs > li.active > a:hover,
+.findhome-faq-tabs .nav-tabs > li.active > a:focus { 
+    border: none;  
+    color: #ffffff; 
+    box-shadow: 3px 3px 0px #00aeef;
+} 
+.findhome-faq-tabs .nav-tabs { border: none; }
+.findhome-faq-tabs .nav > li > a:hover,
+.findhome-faq-tabs .nav > li > a:focus { background-color: #f5f5f5; }
+.findhome-faq-accordion .panel {
+    border: none;
+    box-shadow: 0 0px 0px;
+}
+.findhome-faq-accordion { margin: 0px 0px 110px;}
+.findhome-faq-accordion .panel-default > .panel-heading {
+    background-color: #f5f5f5;
+    padding: 30px 0 23px 0;
+    margin-left: 40px;
+    border-radius: 0px;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body { border-top-color: transparent;}
+.findhome-faq-accordion .panel-title > a {
+    display: block;
+    padding-left: 26px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 13px 15px 15px 53px;
+    color: #ffffff;
+}
+.findhome-faq-accordion .panel-title > .collapsed {
+    background-color: #e0e0e0;
+    color: #363636;
+}
+.findhome-faq-accordion .panel-default .collapsed { color: #363636; }
+.findhome-faq-accordion .panel-body {
+    padding: 0px 30px 23px 30px;
+    background-color: #f5f5f5;
+    margin-left: 40px;
+}
+.findhome-faq-accordion .panel-body p {
+    margin: -2px 0px 0px;
+    color: #808285;
+    letter-spacing: 0.6px;
+}
+.findhome-faq-accordion.panel-group .panel + .panel { margin-top: 27px; }
+.findhome-faq-accordion .panel-title > .collapsed:before,
+.findhome-faq-accordion .panel-title > a:before {
+    content: "\f29c";
+    position: absolute;
+    left: 13px;
+    top: 12px;
+    font-family: 'FontAwesome';
+    color: #363636;
+    font-size: 17px;
+    font-weight: normal;
+}
+.findhome-faq-accordion .panel-title > a:before {
+    content: "\e9c0";
+    color: #ffffff;
+    font-family: 'icomoon';
+}
+.findhome-faq-accordion .panel-title {
+    margin-right: 23px;
+    position: relative;
+    margin-left: -40px;
+}
+/* search result */
+.findhome-search-resultfull { padding: 83px 0px 0px;}
+.findhome-search-heading {
+    float: left;
+    color: #ffffff;
+    font-size: 26px;
+    text-transform: uppercase;
+    padding: 26px 65px 25px 30px;
+    font-weight: 600;
+    margin:57px 0px 54px;
+    letter-spacing: 0px;
+    position: relative;
+}
+.findhome-search-heading:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: -30px;
+    width: 100%;
+    height: 150px;
+    z-index: -1;
+    background-color: #00aeef;
+    margin-left: 30px;
+}
+.findhome-search-text {
+    float: left;
+    width: 100%;
+}
+.findhome-search-text p {
+    color: #363636;
+    margin: 0px 0px 20px;
+    letter-spacing: 0.2px;
+}
+.findhome-list-style-two {
+    float: left;
+    width: 100%;
+    margin-bottom: 14px;
+}
+.findhome-list-style-two li {
+    list-style: none;
+    float: left;
+    width: 100%;
+    line-height: 1;
+    font-size: 14px;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 14px;
+}
+.findhome-list-style-two li:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: #cccccc;
+    border-radius: 100%;
+}
+.findhome-search-text form {
+    float: left;
+    width: 100%;
+}
+.findhome-search-text form input[type="text"] {
+    float: left;
+    width: 100%;
+    height: 45px;
+    padding-left: 20px;
+    font-size: 12px;
+    color: #808285;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+.findhome-search-text form label {
+    float: left;
+    margin: 0px;
+    position: relative;
+}
+.findhome-search-text form label input[type="submit"] {
+    float: left;
+    border: none;
+    color: #ffffff;
+    padding: 11px 18px;
+    position: relative;
+}
+.findhome-search-text form label:before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 100%;
+    height: 100%;
+}
+.findhome-search-text form label:hover:before {
+    bottom: 0px;
+    right: 0px;
+}
+.findhome-search-pic {
+    float: left;
+    width: 100%;
+}
+.findhome-search-pic img {
+    float: right;
+}
+/* login & register */
+.login-check {
+    float: left;
+    margin: 18px 0px 0px;
+    line-height: 1;
+}
+.login-check input[type="checkbox"]                                { display: none;}
+.login-check input[type="checkbox"]:checked + label:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 9px;
+}
+.login-check label {
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 27px;
+    margin: 0px;
+    color: #808285;
+    position: relative;
+    font-size: 12px;
+}
+.login-check label:before {
+    top: 0px;
+    content: "";
+    height: 12px;
+    left: 0;
+    color: #242634;
+    font-size: 10px;
+    position: absolute;
+    width: 12px;
+    line-height: 1.3;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+}
+.findhome-login-form form a {
+    float: right;
+    font-size: 12px;
+    color: #808285;
+    margin: 19px 0px 0px;
+    line-height: 1;
+}
+.findhome-login-text {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 110px;
+    background-color: #f5f5f5;
+    padding: 28px 30px 0px;
+}
+.findhome-login-form {
+    float: left;
+    width: 66.8%;
+}
+.findhome-login-text h2 {
+    float: left;
+    width: 100%;
+    color: #363636;
+    font-size: 18px;
+    margin: 0px 0px 28px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.findhome-login-form form {
+    float: left;
+    width: 100%;
+}
+.findhome-login-form form ul { margin: 0px -15px;}
+.findhome-login-form form ul li {
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 0px 0px 30px;
+    padding: 0px 15px;
+    position: relative;
+}
+.findhome-login-form.findhome-register-form form ul li { width: 50%;}
+.findhome-login-form.findhome-register-form form ul li.full-form { width: 100%;}
+.findhome-login-form form ul li input[type="text"],
+.findhome-login-form form ul li input[type="email"] {
+    float: left;
+    width: 100%;
+    height: 40px;
+    color: #808285;
+    font-size: 10px;
+    padding-left: 15px;
+    background-color: #ffffff;
+}
+.findhome-login-form form ul li i {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 14px;
+    color: #808285;
+    font-size: 12px;
+}
+.findhome-login-form form input[type="submit"] {
+    float: left;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 1px 20px;
+}
+.findhome-register-social {
+    float: right;
+    width: 29.4%;
+}
+.findhome-register-social ul {
+    float: left;
+    width: 100%;
+}
+.findhome-register-social ul li {
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 8px;
+}
+.findhome-register-social ul li.color-one a { background-color: #00aced;}
+.findhome-register-social ul li.color-two a { background-color: #d34836;}
+.findhome-register-social ul li a {
+    color: #ffffff;
+    display: block;
+    background-color: #3b5998;
+    padding: 7px 0px 5px;
+    position: relative;
+    text-align: center;
+}
+.findhome-register-social ul li a i {
+    width: 40px;
+    float: left;
+    text-align: center;
+    font-size: 15px;
+    margin: 0px 27px 0px 0px;
+    padding: 6px 0px 0px;
+}
+.findhome-register-social ul li a:before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0px;
+    height: 100%;
+    width: 1px;
+    background-color: #ffffff;
+    opacity: 0.2;
+}
+
+
+

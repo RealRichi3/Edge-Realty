@@ -1,0 +1,310 @@
+/*	Media 768Px Start */
+@media (min-width: 768px) and (max-width: 990px) {
+	.navbar { position: relative;}
+	.navbar-toggle { display: block; background-color: #eee; margin: 18px 0px 25px 30px;}
+	.navbar-collapse { padding: 0px 0px 0px 0px; width: 260px; background-color: #fff; box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); border: none; position: absolute; left: 0%; top: 100%; z-index: 9999; margin: 10px 0px 0px 0px; }
+	#findhome-header .collapse { display: none; } #findhome-header .collapse.in { display: block; } .findhome-thumbnail { margin-bottom: 0px; }
+	.navbar-nav { margin: 0px; padding-top: 10px;} .navbar-nav > li > a:before,.navbar-nav > li > a:after { display: none; }
+	.navbar-nav .findhome-dropdown-menu { margin: 0px; float: left; width: 100%; position: relative; opacity: 1; visibility: visible; background-color: transparent; }
+	.findhome-megamenu,.navbar-nav .findhome-dropdown-menu {
+		-webkit-transform: translate(0px);
+		   -moz-transform: translate(0px);
+		    -ms-transform: translate(0px);
+		     -o-transform: translate(0px);
+		        transform: translate(0px);
+	}
+	.navbar .navbar-collapse { padding: 0px;}
+	.findhome-megamenu { float: left; min-width: 100%; position: relative; right: auto; top: auto; padding: 0px 8px 5px 8px; box-shadow: none; opacity: 1; visibility: visible; }
+	.findhome-megamenu [class*="col-md-"] { width: 100%; float: left; margin-bottom: 0px; }
+	.findhome-megamenu .row { margin: 0px; } .navbar-nav > li > a { float: left; width: 100%; padding: 20px 20px 22px 20px; color: #555555; line-height: 14px;}
+	.navbar-nav > li { width: 100%; float: left; }
+	.findhome-megamenu li h4 { padding: 15px 0px 0px;}
+	.findhome-dropdown-menu .findhome-dropdown-menu { left: 0px;}
+	.navbar-nav > li { padding: 0px;}
+	/* Main Grid */
+	.findhome-main-content .col-md-4,.findhome-main-content .col-md-3 { float: none; display: inline-block; vertical-align: top; margin-right: -4px; width: 50%; }
+	.findhome-main-content .col-md-7,.findhome-main-content .col-md-5 { width: 100%; float: left; margin-bottom: 30px; }
+	.col-md-12 { float: left; width: 100%; }
+	/*content*/
+	.findhome-banner { display: none;}
+	.logo:before { content: none;}
+	.logo { top: 0; left: 0px; float: left; position: relative; width: 100%; text-align: center;}
+	.findhome-listing-select ul li { padding: 0px 15px; width: 25%;}
+	.findhome-listing-select ul { margin: 0px -15px;}
+	.findhome-listing-select { padding: 0px 20px;}
+	.findhome-listing-tabs .nav-tabs li { display: inline-block; float: none;}
+	.findhome-listing-tabs .nav-tabs { width: 100%; text-align: center;}
+	.findhome-listing-tabs { padding: 15px 30px 15px;}
+	.findhome-listing > ul > li.col-md-6,.findhome-testimonial-wrap ul li { float: left; width: 50%;}
+	.findhome-footer-strip-twitter:after { content: none;}
+	.findhome-footer-strip-layer time { padding-left: 50px;}
+	.findhome-footer-one .widget { float: left; width: 50%;}
+	.findhome-error-pic { display: none;}
+	.findhome-breadcrumb ul:before { right: 20px;}
+	.findhome-breadcrumb ul:after { right: -10px;}
+	.findhome-about-usfull { background-image: none;}
+	.findhome-modern-team ul li:hover figure figcaption { padding-top: 173px;}
+	.findhome-agent-thumb { width: auto;}
+	.skillst { width: 50%; padding: 0px 15px;}
+	.findhome-team-list figure ~ .findhome-team-list-text { padding: 38px 30px 17px 293px;}
+	.findhome-prev-post figure figcaption, .findhome-next-post figure figcaption { padding: 0 30px 6px;}
+	.findhome-blog-list-text h5 { letter-spacing: 0.8px; font-size: 16px;}
+	.findhome-blog-list-text .findhome-thumb-option { margin: 0px 0px 5px;}
+	.findhome-blog-list figure ~ .findhome-blog-list-text { padding: 18px 25px 19px 30px;}
+	.findhome-blog-medium-text p {display: inline-block; margin: 0 0 30px;}
+	.findhome-blog-medium figure ~ .findhome-blog-medium-text { padding: 47px 30px 45px 263px;}
+	.findhome-contact-map { width: 100%;}
+	.findhome-register-social ul li a i { margin: 0px 5px 0px 0px;}
+	.findhome-search-pic { display: none;}
+	.findhome-blog > ul > li,.findhome-property > ul > li { float: left; width: 50%;}
+	.findhome-modern-gallery figure figcaption { padding: 0px 26px;}
+	.findhome-footer-strip .slick-list {width: 77%;}
+	.findhome-blog.findhome-blog-list > ul > li,.findhome-property.findhome-property-list > ul > li { width: 100%;}
+	.findhome-sticky .findhome-header-wrap { position: relative;}
+	.findhome-sticky .findhome-header-wrap { animation: none;}
+	.findhome-sticky .findhome-header-wrap aside.col-md-9 { width: auto;}
+	.findhome-sticky .logo,.findhome-sticky .findhome-simple-btn,.findhome-sticky .findhome-header-wrap aside.col-md-3 { display: block;}
+	.findhome-sticky .findhome-header-wrap .navbar { margin-bottom: 0px; float: left;}
+
+
+
+
+}
+
+/* Media 420Px Start */
+@media (max-width: 767px) {
+	.navbar { position: relative;}
+	.navbar-toggle { background-color: #eee; margin: 18px 0px 25px 30px;}
+	.navbar-collapse { padding: 0px 0px 0px 0px; width: 260px; background-color: #fff; box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); border: none; position: absolute; left: 0%; top: 100%; z-index: 9999; margin: 10px 0px 0px 0px; }
+	#findhome-header .collapse { display: none; } #findhome-header .collapse.in { display: block; } .findhome-thumbnail { margin-bottom: 0px; }
+	.navbar-nav { margin: 0px; padding-top: 10px; } .navbar-nav > li > a:before,.navbar-nav > li > a:after { display: none; }
+	.navbar-nav .findhome-dropdown-menu { margin: 0px; float: left; width: 100%; position: relative; opacity: 1; visibility: visible; background-color: transparent; }
+	.findhome-megamenu,.navbar-nav .findhome-dropdown-menu {
+		-webkit-transform: translate(0px);
+		   -moz-transform: translate(0px);
+		    -ms-transform: translate(0px);
+		     -o-transform: translate(0px);
+		        transform: translate(0px);
+	}
+	.navbar .navbar-collapse { padding: 0px;}
+	.findhome-megamenu { float: left; min-width: 100%; position: relative; right: auto; top: auto; padding: 0px 8px 5px 8px; box-shadow: none; opacity: 1; visibility: visible; }
+	.findhome-megamenu [class*="col-md-"] { width: 100%; float: left; margin-bottom: 0px; }
+	.findhome-megamenu .row { margin: 0px; } .navbar-nav > li > a { float: left; width: 100%; padding: 20px 20px 22px 20px; color: #555555; line-height: 14px;}
+	.navbar-nav > li { width: 100%; float: left; }
+	.findhome-megamenu li h4 { padding: 15px 0px 0px;}
+	.findhome-dropdown-menu .findhome-dropdown-menu { left: 0px;}
+	.navbar-nav > li { padding: 0px;}
+	/* Main Grid */
+	.findhome-main-content .col-md-4,.findhome-main-content .col-md-3{ float: none; display: inline-block; vertical-align: top; margin-right: -4px; width: 50%; }
+	.findhome-main-content .col-md-7,.findhome-main-content .col-md-5 { width: 100%; float: left; margin-bottom: 30px; }
+	.col-md-12 { float: left; width: 100%; }
+	/*content*/
+	.findhome-banner,.logo span { display: none;}
+	.findhome-top-strip { text-align: center; padding: 20px 0px;}
+	.findhome-strip-info li { float: none; display: inline-block;}
+	.findhome-strip-info li:before,.logo:before { content: none;}
+	.logo { top: 0; left: 0px; float: left; position: relative; width: 100%; text-align: center;}
+	.findhome-strip-info li:first-child { padding-left: 27px;}
+	.findhome-strip-info li:last-child { padding-right: 27px;}
+	.findhome-user-section { width: 100%;}
+	.findhome-listing-select ul li,.findhome-listing-select ul li:last-child { width: 50%;}
+	.findhome-listing-list figure ~ .findhome-listing-list-wrap { float: left; margin: 0px;}
+	.findhome-listing > ul > li { float: left; width: 50%;}
+	.findhome-fancy-title h2 { line-height: 1;}
+	.findhome-footer-strip-twitter:after { content: none;}
+	.findhome-footer-one .widget { float: left; width: 50%;}
+	.findhome-listing-option li { margin: 0px 19px 0px 0px;}
+	.findhome-listing-option li a:before { right: -8px;}
+	.findhome-listing-option { padding: 8px 15px 9px;}
+	.tab-content { overflow: hidden; float: left;}
+	.findhome-listing-classic-text { padding-left: 20px;}
+	.findhome-counter ul li { width: 50%;}
+	.findhome-user-post { padding: 12px 15px 10px;}
+	.findhome-blog-grid-text time ~ .findhome-blog-option { padding: 0px 0px 0px 70px;}
+	.findhome-blog-grid-text time ~ h5 { padding: 18px 0 0 70px;}
+	.findhome-blog-option li { margin: 0px 25px 0px 0px;}
+	.findhome-blog-option li:before { right: -12px;}
+	.findhome-listing-list figure { width: 100%;}
+	.findhome-classic-team-text { padding: 78px 18px 23px;}
+	.findhome-footer-strip-layer time { padding-left: 50px;}
+	.widget_links ul li a i { margin: 6px 15px 0 0;}
+	.findhome-listing-tabs .nav-tabs li { display: inline-block; float: none;}
+	.findhome-listing-tabs .nav-tabs { width: 100%; text-align: center;}
+	.findhome-listing-tabs { padding: 15px 30px 15px;}
+	.findhome-error-pic img { margin: 0px;}
+	.findhome-error-heading { padding: 30px 0 50px;}
+	.findhome-error-page-text p { width: 100%;}
+	.findhome-breadcrumb ul:before { right: 20px;}
+	.findhome-breadcrumb ul:after { right: -10px;}
+	.findhome-about-usfull { background-image: none;}
+	.findhome-classic-gallery figure figcaption { padding: 48px 0 0 30px;}
+	.findhome-classic-gallery figure figcaption h4 { font-size: 16px;}
+	.findhome-classic-gallery figure figcaption p { font-size: 12px;}
+	.findhome-agent-thumb { width: auto;}
+	.findhome-listing-list-wrap .findhome-user-post h6 { font-size: 14px;}
+	.findhome-team-list figure ~ .findhome-team-list-text { margin: 30px 0 0; padding: 140px 20px 45px;}
+	.findhome-team-list figure { padding: 0px 30px;}
+	.findhome-team > ul > li { width: 50%;}
+	.findhome-team-list figure { width: 100%;}
+	.findhome-team-list ul li:hover figure a:before { height: 100%;}
+	.findhome-team-list ul li figure a:before { width: 100%; height: 0px;}
+	.findhome-team-list ul li:hover figure a i { top: 50%;}
+	.findhome-team-list ul li figure a i { left: 50%; top: 0px;}
+	.findhome-prenxt-post ul li { width: 100%;}
+	.findhome-tags a:last-child { margin: 0px;}
+	.findhome-tags a { margin: 0 10px 0 0;}
+	.findhome-tags i { margin: 4px 10px 0px 0px;}
+	.findhome-blog-list figure ~ .findhome-blog-list-text { padding: 23px 15px 30px 15px; margin: 0px; float: left; border-left: 1px solid #eeeeee;}
+	.findhome-blog-list figure { width: 100%;}
+	.comment-list figure ~ .text-holder { float: left; padding: 20px 0 18px 0px; margin: 0px;}
+	.comment-list .children li .thumb-list { padding-left: 0px;}
+	.findhome-thumb-option li:last-child { margin: 0px;}
+	.findhome-blog > ul > li { width: 50%; float: left;}
+	.findhome-blog-medium figure { width: 100%; padding: 0px 30px;}
+	.findhome-blog-medium figure ~ .findhome-blog-medium-text { margin: 0px; padding: 210px 30px 39px 30px;}
+	.findhome-blog-medium ul li:hover figure a:before { height: 100%;}
+	.findhome-blog-medium ul li figure a:before { height: 0px; width: 100%;}
+	.findhome-blog-medium figure a i { left: 50%; top: 0px;}
+	.findhome-blog-medium ul li:hover figure a i { top: 50%;}
+	.findhome-contact-map { width: 100%;}
+	.findhome-modern-gallery figure figcaption { padding: 0px 13px; max-height: 58px;}
+	.findhome-modern-gallery figure figcaption h6 { padding: 8px 0px; letter-spacing: 0px; font-size: 14px;}
+	.findhome-listing-thumb-heading p { width: 80%;}
+	.findhome-specifications li,.findhome-features li { width: 50%;}
+	.findhome-attachment-file ul { padding: 29px 30px 2px;}
+	.findhome-attachment-file ul li { margin: 0px 29px 30px 0px;}
+	.findhome-listing-grid-text h6 { line-height: 1.2;}
+	.findhome-login-form  { width: 100%;}
+	.findhome-register-social { float: left; width: 60%;}
+	.findhome-login-text { padding: 28px 30px 26px;}
+	.findhome-priceplan-title { padding: 25px 0 0 30px;}
+	.findhome-priceplan-list { padding: 20px 30px 30px;}
+	.findhome-property-list figure { width: 100%; padding: 0px 20px;}
+	.findhome-property-list figure ~ .findhome-property-list-text { margin: 30px 0px 0px; padding: 155px 30px 34px 29px;}
+	.findhome-property-list figure > span { left: 40px; top: 20px;}
+	.findhome-property-list figure a:before { height: 0%; width: 100%;}
+	.findhome-property-list ul li:hover figure a:before { height: 100%;}
+	.findhome-property-list figure a i { left: 50%; top: 0px;}
+	.findhome-property-list ul li:hover figure a i { top: 50%;}
+	.findhome-property > ul > li { width: 50%; float: left;}
+	.findhome-list-style-two li { line-height: 1.5;}
+	.findhome-list-style-two li:before { top: 8px;}
+	.findhome-search-text { margin: 0px 0px 30px;}
+	.findhome-search-heading { font-size: 20px;}
+	.findhome-footer-strip-twitter { padding-top: 42px;}
+	.skillst { padding: 0px 10px; width: 50%;}
+	.findhome-blog-list figure a:before { width: 100%; height: 30%;}
+	.findhome-blog-list ul li:hover figure a:before { height: 100%;}
+	.findhome-blog-list figure a i { right: 50%; bottom: 0px;}
+	.findhome-blog-list ul li:hover figure a i { bottom: 50%;}
+	.findhome-sticky .findhome-header-wrap { position: relative;}
+	.findhome-sticky .findhome-header-wrap { animation: none;}
+	.findhome-sticky .findhome-header-wrap aside.col-md-9 { width: auto;}
+	.findhome-sticky .logo,.findhome-sticky .findhome-simple-btn,.findhome-sticky .findhome-header-wrap aside.col-md-3 { display: block;}
+	.findhome-sticky .findhome-header-wrap .navbar { margin-bottom: 0px; float: left;}
+
+
+
+}
+
+/* Media 300Px Start */
+@media (max-width: 480px) {
+	/*main grid*/
+	.findhome-main-content .col-md-4,.findhome-main-content .col-md-3,.findhome-main-content .col-md-6 { margin-right: 0px; width: 100%; }
+	/*main grid*/
+	.findhome-counter ul li,.findhome-listing-select ul li,.findhome-listing-select ul li:last-child { width: 100%;}
+	.findhome-user-post { text-align: center;}
+	.findhome-user-post h6,.findhome-listing-list-wrap .findhome-user-post h6 { float: none;}
+	.findhome-listing-list-wrap .findhome-user-post h6 { font-size: 16px;}
+	.findhome-user-post time { display: inline-block; float: none;}
+	.findhome-footer-strip-twitter { text-align: center;}
+	.findhome-footer-strip-twitter i { display: block; float: none; margin: 0px 0px 20px;}
+	.findhome-footer-strip-layer p { margin: 0px; width: 100%;}
+	.findhome-listing-option li { margin: 0px 41px 0px 0px;}
+	.findhome-listing-option li a:before { right: -21px;}
+	.findhome-listing-option { padding: 8px 30px 9px;}
+	.findhome-listing-classic-text { padding-left: 30px;}
+	.findhome-listing > ul > li,.findhome-agent-contact-form ul li { width: 100%;}
+	.findhome-user-post { padding: 12px 30px 10px;}
+	.findhome-blog-grid-text time ~ .findhome-blog-option { padding: 0px 0px 0px 85px;}
+	.findhome-blog-grid-text time ~ h5 { padding: 18px 0 0 85px;}
+	.findhome-classic-team-text { padding: 78px 34px 23px;}
+	.findhome-footer-strip-layer time { padding-left: 0px; float: none; display: inline-block;}
+	.findhome-footer-one .widget { width: 100%;}
+	.widget_links ul li a i { margin: 6px 20px 0 0;}
+	.findhome-classic-gallery figure figcaption h4 { font-size: 20px;}
+	.findhome-agent-thumb,.findhome-team > ul > li { width: 100%;}
+	.findhome-classic-gallery figure figcaption p { font-size: 13px;}
+	.findhome-team-list figure ~ .findhome-team-list-text { padding: 165px 30px 45px;}
+	.findhome-tags i,.findhome-tags a,.findhome-blog-social > ul { float: none; display: inline-block;}
+	.findhome-tags { margin: 0px 0px 20px;}
+	.findhome-tags,.findhome-blog-social,.findhome-contact-form form ul li { width: 100%;}
+	.findhome-post-tags { text-align: center;}
+	.findhome-prev-post figure figcaption, .findhome-next-post figure figcaption { padding-bottom: 0px;}
+	.comment-respond form p,.findhome-blog > ul > li,.findhome-specifications li,.findhome-features li { width: 100%;}
+	.findhome-blog-list figure ~ .findhome-blog-list-text { padding: 23px 25px 30px 30px;}
+	.findhome-blog-medium figure ~ .findhome-blog-medium-text { margin: 0px; padding: 225px 30px 39px 30px;}
+	.findhome-modern-gallery figure figcaption { padding: 0px 15px;}
+	.findhome-modern-gallery figure figcaption h6 { padding: 15px 0px; letter-spacing: 0.6px; font-size: 14px;}
+	.findhome-listing-thumb-heading p { width: 69%;}
+	.findhome-floor-info ul li { margin: 0 0 0 10px;}
+	.findhome-attachment-file ul li { margin: 0px 0px 30px;}
+	.findhome-attachment-file ul { padding: 29px 30px 32px;}
+	.findhome-pagination > ul > li { margin: 0px 5px 0px 0px;}
+	.findhome-register-social { width: 100%;}
+	.findhome-login-form.findhome-register-form form ul li { width: 100%;}
+	.findhome-priceplan-list { padding: 20px 40px 30px;}
+	.findhome-priceplan-title { padding: 25px 0 0 55px;}
+	.findhome-property-grid .findhome-listing-option li:last-child { margin: 0px;}
+	.findhome-property-grid .findhome-listing-option li { margin: 0 34px 0 0;}
+	.findhome-property > ul > li { width: 100%;}
+	.findhome-search-heading:before { display: none;}
+	.findhome-search-heading { font-size: 26px;}
+	.findhome-footer-strip-twitter { padding-top: 23px;}
+	.findhome-subheader-image h1 { line-height: 1.2; margin: 0px 0px 3px;}
+	.skillst { padding: 0px 0px; width: 100%;}
+
+
+
+}
+
+/* Media 940Px Start */
+@media screen and (min-width: 991px) and (max-width: 1054px) {
+	.findhome-strip-info li { padding: 0px 9px;}
+	.navbar-nav > li { padding: 0px 15px;}
+	.findhome-banner { margin: -85px 0px 0px;}
+	.findhome-simple-btn { margin: 19px 20px 0 0;}
+	.findhome-classic-team-text { padding: 78px 20px 23px;}
+	.findhome-blog-option li { margin: 0 36px 0 0;}
+	.findhome-blog-option li:before { right: -18px;}
+	.findhome-footer-strip-layer p { letter-spacing: 0.5px; font-size: 12px; margin: 0px 8px 0px 0px;}
+	.findhome-footer-strip-twitter i { font-size: 26px; margin: -2px 20px 0px 0px;}
+	.findhome-classic-gallery figure figcaption { padding: 50px 25px 0 30px;}
+	.findhome-modern-team ul li:hover figure figcaption { padding-top: 50px;}
+	.findhome-list-style-one li { letter-spacing: 0.3px;}
+	.findhome-team-list figure ~ .findhome-team-list-text { padding: 38px 30px 17px 293px;}
+	.findhome-prev-post figure figcaption, .findhome-next-post figure figcaption { padding: 0 30px 5px;}
+	.findhome-blog-list figure ~ .findhome-blog-list-text { border-left: 1px solid #eeeeee;}
+	.findhome-thumb-option li:last-child { margin: 0px;}
+	.findhome-blog-medium figure { width: 220px;}
+	.findhome-blog-medium figure ~ .findhome-blog-medium-text { padding: 36px 30px 39px 210px;}
+	.findhome-thumb-option li i { margin: 0px 4px 0px 0px;}
+	.findhome-thumb-option li { margin: 0px 11px 0px 0px;}
+	.findhome-modern-gallery figure figcaption h6 { font-size: 14px; letter-spacing: 0.3px;}
+	.findhome-modern-gallery figure figcaption { padding: 0px 20px;}
+	.findhome-listing-grid-text h6 { line-height: 1.2;}
+	.findhome-register-social ul li a i { margin: 0px 3px 0px 0px;}
+	.findhome-priceplan-title { padding: 25px 0 0 55px;}
+	.findhome-search-heading { margin-top: 0px;}
+	.findhome-listing-option li { margin: 0 35px 0 0;}
+	.findhome-listing-option li a:before { right: -18px;}
+	.findhome-property-grid-text { padding: 24px 15px 22px 25px;}
+	.findhome-images-list .slick-arrow { height: 121px; padding-top: 52px;}
+	.findhome-dropdown-menu { margin: 14px 0 0;}
+	.findhome-search-heading { padding: 30px 65px 30px 30px;}
+	.findhome-sticky .findhome-header-wrap { position: relative;}
+	.findhome-sticky .findhome-header-wrap { animation: none;}
+	.findhome-sticky .findhome-header-wrap aside.col-md-9 { width: auto;}
+	.findhome-sticky .logo,.findhome-sticky .findhome-simple-btn,.findhome-sticky .findhome-header-wrap aside.col-md-3 { display: block;}
+	.findhome-sticky .findhome-header-wrap .navbar { margin-bottom: 0px; float: left;}
+}

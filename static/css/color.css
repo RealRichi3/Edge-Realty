@@ -1,0 +1,69 @@
+ /* ThemeColor One */
+.findhome-color,.findhome-colorhover:hover,.findhome-listing-filter li i,.findhome-listing-filter li.active a,.findhome-listing-tabs .nav-tabs > li.active > a,
+.findhome-listing-tabs .nav-tabs > li.active > a:hover,.findhome-listing-tabs .nav-tabs > li.active > a:focus,.findhome-user-post h6,.widget_links ul li:hover a,
+.findhome-classic-team-text h5 a,.findhome-blog-grid-text h5 a,.findhome-blog-option li:hover a,.findhome-blog-grid ul li:hover .findhome-plane-btn,
+.findhome-blog-grid figure a i,.findhome-testimonial figure figcaption h6 a,.findhome-footer-title,.findhome-simple-btn:hover,.findhome-readmore-btn:hover,
+.findhome-thumb-heading h2,.findhome-tags i,.findhome-tags a:hover,.findhome-blog-social > i,.findhome-blog-list figure a i,.text-holder h6,.findhome-property-grid figure a i,
+.widget_cetagories ul li:hover a,.widget_recent_post ul li:hover .widget_recent_post_text h6 a,.findhome-blog-large ul li > figure a i,.findhome-listing-list-text span i,
+.findhome-blog-large-wrap > figure figcaption h6 a,.widget-listing-wrap h6 a,.findhome-blog-medium-text h5 a,.findhome-blog-medium figure a i,
+.findhome-listing-thumb-heading h2,.findhome-attachment-file ul li:hover > a,.findhome-listing-list figure a i,.findhome-listing-list-text h5 a,
+.findhome-listing-list-wrap .findhome-listing-option li:hover a,.widget-listing-wrap p i,.findhome-listing-grid-text h6 a,.findhome-property-grid-text h6 a,
+.findhome-property-list figure a i,.findhome-property-list-text h5 a,.findhome-team-list figure a i,.findhome-team-list-text h5 a,.findhome-error-btn:hover,
+.agent-list-option li:hover a,.findhome-about-us ul li h6,.findhome-agent-thumb-text h4,.login-check input[type="checkbox"]:checked + label:before,
+.findhome-login-form form a:hover,.navbar-nav > li > a,.findhome-megamenu li h4 {
+    color: #004274;
+}
+.findhome-bgcolor,.findhome-bgcolorhover:hover,.findhome-fancy-shape span small:before,.findhome-fancy-shape span:before,.img-transparent,.findhome-footer-title:before,
+.findhome-fancy-shape span:after,.findhome-fancy-shape:before,.findhome-fancy-shape:after,.findhome-listing-filter li.active a:after,.findhome-testimonial i,
+.findhome-listing-classic figure figcaption:before,.findhome-classic-team-text span:before,.findhome-blog-grid-text time,.findhome-blog-grid figure a:before,
+.findhome-footer-title:after,.widget_aboutus ul li i,.findhome-back-top:hover,.findhome-breadcrumb ul:before,.findhome-thumb-heading time,blockquote,
+.findhome-blog-social ul li:hover a,.findhome-prenxt-post ul li figure:before,.findhome-prenxt-post figure > a:before,.findhome-prenxt-post ul li:hover .findhome-post-arrow,
+.findhome-section-heading:before,.findhome-section-heading:after,.findhome-blog-list figure time,.findhome-blog-list ul li:hover .findhome-classic-btn,
+.findhome-blog-list figure a:before,.comment-reply-link,.findhome-widget-heading:before,.findhome-widget-heading:after,.widget_recent_post figure a:before,
+.widget_find_property figure a:before,.widget_gallery figure a:before,.findhome-blog-large ul li > figure a:before,.findhome-blog-large ul li:hover .findhome-modern-btn,
+.findhome-pagination > ul > li > a:hover,.findhome-pagination > ul > li > span.current,.findhome-blog-medium ul li:hover .findhome-classic-btn,
+.findhome-blog-medium figure a:before,.findhome-images-thumb span:before,.findhome-images-list .slick-arrow:hover,.findhome-floor-tabs .nav-tabs > li.active > a,
+.findhome-floor-tabs .nav-tabs > li.active > a:hover,.findhome-floor-tabs .nav-tabs > li.active > a:focus,.findhome-listing-list figure a:before,
+.ui-slider .ui-slider-range,.findhome-property-grid figure a:before,.findhome-property-list figure a:before,.findhome-property-list .findhome-classic-btn,
+.findhome-team-list .findhome-classic-btn,.findhome-team-list figure a:before,.findhome-modern-team figure figcaption,.findhome-modern-gallery figure > a:before,
+.findhome-priceplan-title h2,.findhome-priceplan-list,.findhome-priceplan ul li:hover .findhome-priceplan-title,.findhome-priceplan ul li:hover .findhome-priceplan-btn,
+.findhome-contact-info,.findhome-error-heading,.findhome-error-btn,.findhome-faq-tabs .nav-tabs > li.active > a,.findhome-faq-tabs .nav-tabs > li.active > a:hover,
+.findhome-faq-tabs .nav-tabs > li.active > a:focus,.findhome-search-heading,.findhome-listing-option,.findhome-faq-accordion .panel-title > a,
+.findhome-search-text form label input[type="submit"],.findhome-login-form form input[type="submit"]  {
+    background-color: #004274;
+}
+.findhome-bordercolor,.findhome-bordercolorhover:hover,.findhome-fancy-shape span small,.findhome-listing-filter li.active a:before,.findhome-back-top:hover,
+.findhome-readmore-btn,.findhome-prenxt-post ul li:hover .findhome-prev-post,.findhome-prenxt-post ul li:hover .findhome-next-post,#slider-range span,#slider-range2 span,
+.findhome-modern-team ul li:hover figure,.bar-container .bar:before,.findhome-error-btn {
+    border-color: #004274;
+}
+.findhome-breadcrumb,.findhome-breadcrumb ul:after,.findhome-attachment-file ul li:hover > a,.findhome-listing-grid-text.heading:before,
+.findhome-priceplan-title h2:before {
+	border-bottom-color: #004274;
+}
+
+/*color 2*/
+
+.navbar-nav > li:hover > a,.findhome-fancy-title h2 span,.findhome-footer-title span,.findhome-section-heading span,.findhome-blog-list-text .findhome-thumb-option li i,
+.findhome-blog-list-tags li:hover a,.findhome-widget-heading > span,.findhome-attachment-file a,.findhome-listing-list ul li:hover .findhome-listing-list-text h5 a,
+.findhome-listing-grid-text .findhome-listing-option li a i,.findhome-property-grid-text .findhome-listing-option li a i,.findhome-about-us ul li i {
+	color: #00aeef;
+}
+.navbar-nav > li > a:after,label.banner-submit:before,.findhome-classic-team ul li:hover .findhome-classic-team-text,.findhome-footer-strip-twitter:before,
+.findhome-breadcrumb,blockquote span,.findhome-post-arrow,.comment-respond label:before,.findhome-blog-large ul li:hover .findhome-modern-btn:before,
+.widget-social,.findhome-property-list ul li:hover .findhome-classic-btn,.findhome-team-list ul li:hover .findhome-classic-btn,.findhome-modern-team figure figcaption:before,
+.findhome-priceplan-title,.findhome-priceplan-btn,.findhome-priceplan ul li:hover .findhome-priceplan-title h2,.findhome-priceplan ul li:hover .findhome-priceplan-list,
+.findhome-search-text form label:before {
+	background-color: #00aeef;
+}
+.findhome-classic-team ul li:hover .findhome-classic-team-text {
+	border-color: #00aeef;
+}
+.findhome-footer-strip,.findhome-footer-strip-twitter:after,.findhome-thumb-heading time:before,.findhome-blog-grid-text time:before,
+blockquote:before,.findhome-attachment-file a,.findhome-modern-team figure figcaption,.findhome-modern-team figure figcaption:after,
+.findhome-priceplan ul li:hover .findhome-priceplan-title h2:before {
+    border-bottom-color: #00aeef;
+}
+.findhome-listing-thumb-heading span:before,.findhome-property-list .findhome-classic-btn:before,.findhome-team-list .findhome-classic-btn:before {
+    border-top-color: #00aeef;
+}
