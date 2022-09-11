@@ -5,6 +5,7 @@ require('dotenv').config()
 const {asyncWrapper} = require("./middlewares/asyncWrapper")
 const {connectToDB} = require('./db/connectDB')
 const {errorHandler} = require('./middlewares/errorHandler')
+const {BASICAUTH, AGENTAUTH} = require('./middlewares/auth')
 
 
 const config = process.env
@@ -32,11 +33,13 @@ app.use((req, res, next) => {
 // Routes 
 const authRoute = require('./routes/authRoutes'),
     cartRoute = require('./routes/cartRoutes'),
-    propertyRoute = require('./routes/propertyRoutes');
+    propertyRoute = require('./routes/propertyRoutes'),
+    adminRoute = require('./routes/adminRoutes')
 
 app.use('/api/auth', authRoute)
-app.use('/api/auth/property', propertyRoute)
-app.use('/api/auth/cart', cartRoute)
+app.use('/api/auth/property',  propertyRoute)
+app.use('/api/auth/cart', BASICAUTH, cartRoute)
+app.use('/api/auth/admin', BASICAUTH, adminRoute)
 app.use(errorHandler)
 
 async function start(){

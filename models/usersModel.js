@@ -85,7 +85,9 @@ userSchema.methods.completeSave = async function (data)  {
         await Status.create(data)
         const ver_token = await Token.create(data)
 
-        return ver_token.token
+        console.log(ver_token)
+
+        return ver_token.verification
     } catch (error) {
         throw error
     }

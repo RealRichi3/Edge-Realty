@@ -6,10 +6,10 @@ const mongoose = require('mongoose')
 const { VerificationToken, ResetToken } = require('../models/tokenModel'),
     { Status } = require('../models/accountStatusModel'),
     { Password } = require('../models/passwordModel.js');
-const { BoatOperator, EndUser, Founder, Staff, Ticketer, SuperAdmin , User} = require('../models/usersModel');
+const { BoatOperator, EndUser, Founder, Staff, Ticketer, SuperAdmin, User } = require('../models/usersModel');
 
 // Middlewares
-const asyncWrapper = require('../middlewares/asyncWrapper'),
+const { asyncWrapper } = require('../middlewares/asyncWrapper'),
     { CustomAPIError, createCustomError, BadRequestError, UnauthorizedError } = require('../middlewares/customError');
 
 // Utilities
@@ -81,7 +81,7 @@ const activateUserAcc = asyncWrapper(async (req, res, next) => {
 
 const deactivateUserAcc = asyncWrapper(async (req, res, next) => {
     const currUser = await User.findOne({ email: req.body.email })
-    if (currUser.role == "SuperAdmin") { throw new BadRequestError("Permission denied")}
+    if (currUser.role == "SuperAdmin") { throw new BadRequestError("Permission denied") }
     await Status.findOneAndUpdate({ user: currUser._id }, { isActive: false }, { new: true })
     return res.status(statusCode.OK).send({ message: "Success" })
 })
@@ -112,7 +112,8 @@ const addNewUser = asyncWrapper(async (req, res, next) => {
 module.exports = {
     addNewUser,
     activateUserAcc,
-    deactivateUserAcc
+    deactivateUserAcc,
+    getInactiveUserAccs
 }
 
 

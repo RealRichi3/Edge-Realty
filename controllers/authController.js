@@ -57,6 +57,7 @@ const signup = asyncWrapper(async (req, res, next) => {
             jwt_token = currUser.createJWT()
 
             let new_token = Math.floor(100000 + Math.random() * 900000);
+            console.log(new_token)
             await Token.findOneAndUpdate({ user: currUser._id }, { verification: new_token }, { new: true });
             await sendMail(new EmailMsg(email, firstname, new_token).userAccountVerification());
 
@@ -69,6 +70,7 @@ const signup = asyncWrapper(async (req, res, next) => {
     const ver_token = await newUser.completeSave(req.body)
 
     await sendMail(new EmailMsg(email, firstname, ver_token).userAccountVerification())
+    console.log(ver_token)
     jwt_token = newUser.createJWT()
 
     return res.status(201).send({ user: { firstname, lastname }, token: jwt_token })
@@ -116,7 +118,7 @@ const login = asyncWrapper(async (req, res, next) => {
 
         return res.status(statusCode.BADREQUEST).send({ message: "Please verify your account", token: jwt_token })
     }
-
+    if (!currUser.status.isActive){ throw new UnauthorizedError('Unauthorized access')}
     const match = await confirmHash(password, currUser.password.password)
     if (!match) { throw new UnauthorizedError("Login credentials invalid") }
     jwt_token = currUser.createJWT()
