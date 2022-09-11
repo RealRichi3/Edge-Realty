@@ -5,9 +5,7 @@ const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
     user: { type: Schema.Types.ObjectId, required: true},
-    agent: { type: Schema.Types.ObjectId, required: true},
     properties: [ {type: Schema.Types.ObjectId, required: true }],
-    transaction_type: { type: String, required: true, enum: ['wallet_topup', 'book_trip', 'new_trip' ]},
     payment_method: { type: String, required: true, enum: ['cash', 'crypto', 'card', 'transfer']},
     amount: { type: Number, required: true},
     note: { type: String},
