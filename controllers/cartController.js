@@ -22,7 +22,7 @@ const addPropertyToCart = asyncWrapper(async (req, res, next) => {
         user: bearer._id,
         properties: [property_id]
     })
-    return res.status(200).send(cart); // Send cart object
+    return res.status(200).send({message: "success"}); // Send cart object
 })
 
 const removePropertyFromCart = asyncWrapper(async (req, res, next) => {
@@ -42,7 +42,7 @@ const getCartItems = asyncWrapper(async (req, res, next) => {
 })
 
 const checkout = asyncWrapper(async(req, res, next) => {
-    const cart = await Cart.findOne({user: req.body.bearer._id}).populate('propeties')
+    const cart = await Cart.findOne({user: req.body.bearer._id}).populate('properties')
     const properties = cart.properties
     let total_amount = 0
 
