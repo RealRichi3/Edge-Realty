@@ -5,14 +5,12 @@ const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
     user: { type: Schema.Types.ObjectId, required: true},
-    properties: [ {type: Schema.Types.ObjectId, required: true }],
+    properties: [ {type: Schema.Types.ObjectId, required: true, ref: "Properties" }],
     payment_method: { type: String, required: true, enum: ['cash', 'crypto', 'card', 'transfer']},
     amount: { type: Number, required: true},
     note: { type: String},
-    status: { type: String, default: 'Pending'},
-    ref: { type: String, default: () => {
-        return crypto.randomUUID()
-    }}
+    status: { type: String, default: 'pending'},
+    ref: { type: String, default: crypto.randomUUID()}
 }, {timestamps: true})
 
 
