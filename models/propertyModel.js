@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const specificationsSchema = new Schema({
+    price: { type: String },
+    bedrooms: { type: String },
+    bathrooms: { type: String },
+    area: { type: String }
+})
+
+mongoose.model('Specifications', specificationsSchema)
+
 const propertySchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
@@ -12,13 +21,7 @@ const propertySchema = new Schema({
     images: { type: String },
     description: { type: String },
     tag: { type: String },
-    specifications: {
-        price: { type: String },
-        bedrooms: { type: String },
-        bathrooms: { type: String },
-        area: { type: String }
-    }
-    ,
+    specifications: specificationsSchema,
     year_built: { type: Number }
 }, { timestamps: true });
 

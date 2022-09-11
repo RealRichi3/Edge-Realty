@@ -12,8 +12,8 @@ const searchProperties = asyncWrapper(async (req, res, next) => {
 })
 
 const addNewProperty = asyncWrapper(async (req, res, next) => {
-    const newProperty = new Property(req.body.property)
-    await newProperty.save()
+    const newProperty = await Property.create(req.body)
+    
     return res.status(statusCode.OK).send({message: "Success", response: newProperty})
 })
 

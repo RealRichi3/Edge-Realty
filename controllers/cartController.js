@@ -2,80 +2,52 @@
 const { asyncWrapper } = require('../middlewares/asyncWrapper'),
     { decodeJWT } = require('./utils/jwt');
 
+const mongoose = require('mongoose')
 // Models
 const { Cart } = require("../models/cartModel."),
     { Property } = require("../models/propertyModel");
+const { BadRequestError } = require('../middlewares/customError');
 
 const addPropertyToCart = asyncWrapper(async (req, res, next) => {
-    const { bearer } = req.body
+    const { bearer, property_id } = req.body
     console.log(req.body)
     let response = await Cart.findOne({ user: bearer._id });
-    console.log(response)
+
     if (response) {
-        response.properties.push({ property: req.body.property_id });
+        response.properties.push(property_id)
 
-        
-
-        Cart.findOne({user: bearer._id}).exec(function (err, data) {
-            if (err) return handleError(err);
-
-            async.forEach(data, function (item, callback) {
-                User.populate(item.comments, { "path": "user" }, function (err, output) {
-                    if (err) throw err; // or do something
-
-                    callback();
-                });
-            }, function (err) {
-                res.json(data);
-            });
-
-        });
+        console.log(response)
         await response.save();
         res.status(200).send(response);
-    } else {
-        let cart = new Cart({
-            user: bearer._id,
-            properties: [req.body.property_id]
-        })
-        await cart.save();
-        res.status(200).send(cart); // Send cart object
     }
-    return res.status(200)
+    let cart = await Cart.create({
+        user: bearer._id,
+        properties: [property_id]
+    })
+    return res.status(200).send(cart); // Send cart object
 })
-// async function addPropertyToCart(req, res) {
+
+const removePropertyFromCart = asyncWrapper(async (req, res, next) => {
+    let response = await Cart.findOne({ user: req.body.bearer._id })
+    if (!response) { throw new BadRequestError('Cart is empty') }
+    response.properties.pull(req.body.property_id)
+    await response.save()
+    console.log(response)
+    return res.status(200).send({ message: "Success" })
+})
+// async function removePropertyFromCart(req, res) {
 //     try {
 //         let response = await Cart.findOne({ user_email_fkey: req.body.email });
 //         if (response) {
-//             response.propertires.push(req.body.property_id);
+//             response.properties.pull(req.body.property_id);
 //             await response.save();
 //             res.status(200).send(response);
-//         } else {
-//             let cart = new Cart({
-//                 user_email_fkey: req.body.email,
-//                 properties: [req.body.property_id]
-//             })
-//             await cart.save();
-//             res.status(200).send(cart); // Send cart object
-//         }
+//         } else { res.status(200).send(response) }
 //     } catch (error) {
 //         console.log(error)
 //         res.status(500).send(error)
 //     }
 // }
-
-async function removePropertyFromCart(req, res) {
-    try {
-        let response = await Cart.findOne({ user_email_fkey: req.body.email });
-        if (response) {
-            response.properties.pull(req.body.property_id);
-            await response.save();
-            res.status(200).send(response);
-        } else { res.status(200).send(response) }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
 
 async function getCartItems(req = null, res = null, user_email = null) {
     try {
