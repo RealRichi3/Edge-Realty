@@ -1,55 +1,36 @@
 
+const { asyncWrapper } = require("../middlewares/asyncWrapper");
 const { Property } = require("../models/propertyModel");
-
-async function searchProperties(req, res) {
-    try {
-        let query = req.query;
-        let properties = Property.find(query);
-        properties.exec()
-            .then(response => {
-                res.status(200).send(response)
-            })
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
-
-async function addNewPropertyListing(property_data) {
-    try {
-        let property = new Property(property_data);
-        await property.save();
-        return property;
-    } catch (error) {
-        console.log(error)
-        return error
-    }
-}
-
-async function removePropertyListing(property_id) {
-    try {
-        let property = await Property.findByIdAndDelete(property_id);
-        return property;
-    } catch (error) {
-        console.log(error)
-        return error
-    }
-}
+const { statusCode } = require("./utils/statusCode");
 
 
-async function updatePropertyListing(property_id, property_data) {
-    try {
-        let property = await Property.findByIdAndUpdate(property_id, property_data, { new: true });
-        return property;
-    } catch (error) {
-        console.log(error)
-        return error
-    }
-}
+
+const searchProperties = asyncWrapper(async (req, res, next) => {
+    console.log(req.body)
+    const properties = await Property.find(req.body.query);
+    return res.status(statusCode.OK).send({ message: "Success", response: properties })
+})
+
+const addNewProperty = asyncWrapper(async (req, res, next) => {
+    const newProperty = await Property.create(req.body)
+    
+    return res.status(statusCode.OK).send({message: "Success", response: newProperty})
+})
+
+const removeProperty = asyncWrapper(async (req, res, next) => {
+    const property = await Property.findByIdAndDelete(req.body._id);
+    return res.status(statusCode.OK).send({ message: "Success", response: property })
+})
+
+const updateProperty = asyncWrapper(async (req, res, next) => {
+    const property = await Property.findByIdAndUpdate(req.body._id, req.body.property, { new: true })
+    return res.status(statusCode.OK).send({ message: "Success", response: property })
+})
+
 
 module.exports = {
     searchProperties,
-    addNewPropertyListing,
-    removePropertyListing,
-    updatePropertyListing
+    addNewProperty,
+    removeProperty,
+    updateProperty
 }

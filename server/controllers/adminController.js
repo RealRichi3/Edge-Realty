@@ -1,108 +1,121 @@
-const { User } = require("../models/userModel"),
-    { Agent } = require("../models/agentModel"),
-    { Password } = require("../models/passwordModel"),
-    { Appointment } = require("../models/appointmentModel"),
-    { Cart } = require("../models/cartModel"),
-    { Transaction } = require("../models/transactionModel"),
-    { Property } = require("../models/propertyModel"),
-    { Cart } = require("../models/cartModel.");
 
-const { findClientMatch } = require("../controllers/common/clientsCommonController");
+const _ = require('lodash')
+const mongoose = require('mongoose')
 
-const clients = {
-    "user": User,
-    "agent": Agent
+// Models
+const { VerificationToken, ResetToken } = require('../models/tokenModel'),
+    { Status } = require('../models/accountStatusModel'),
+    { Password } = require('../models/passwordModel.js');
+const { BoatOperator, EndUser, Founder, Staff, Ticketer, SuperAdmin, User } = require('../models/usersModel');
+
+// Middlewares
+const { asyncWrapper } = require('../middlewares/asyncWrapper'),
+    { CustomAPIError, createCustomError, BadRequestError, UnauthorizedError } = require('../middlewares/customError');
+
+// Utilities
+const { sendMail } = require("./utils/mailer"),
+    { hashPassword, checkHash } = require('./utils/hash'),
+    { decodeJWT } = require('./utils/jwt'),
+    { statusCode } = require('./utils/statusCode'),
+    { EmailMsg } = require('./utils/messageTemplates')
+
+// Constants
+const users = {
+    "BoatOperator": BoatOperator,
+    "Founder": Founder,
+    "Staff": Staff,
+    "EndUser": EndUser,
+};
+const control_admin = {
+    "Founder": Founder,
+    "SuperAdmin": SuperAdmin
 }
+const config = process.env
 
-async function deleteUser(req, res) {
+
+/* AUTHORIZE ADMIN REQUEST
+*/
+const authorizeAdminRequest = async (req) => {
     try {
-        let client_id;
-        let client_data = await findClientMatch(req.body.client_type, req.body.email)
-        if (client_data) { client_id = client_data._id };
+        const authHeader = req.headers.authorization
+        if (!authHeader || !authHeader.startsWith('Bearer')) { throw new UnauthorizedError('Authentication invalid') }
 
-        await User.findOneAndDelete({ email: req.body.client_email });
-        await Password.findOneAndDelete({ user_id_fkey: client_id });
-        await Appointment.findOneAndDelete({ user_email_fkey: req.body.client_email });
-        await Cart.findOneAndDelete({ user_email_fkey: req.body.client_email });
+        const jwtToken = authHeader.split(' ')[1]
+        const payload = decodeJWT(jwtToken)
+        console.log(payload)
 
-        res.status(200).send({ message: "User deleted successfully" });
+        const allowedRoles = ["SuperAdmin", "Founder"]
+        if (!allowedRoles.includes(payload.role)) { return false }
+
+        const Admin = control_admin[payload.role],
+            currAdmin = await Admin.findOne({ email: payload.email })
+        if (currAdmin.isActive) { return true }
+
+        return false
     } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+        throw "An error occured"
     }
 }
 
-async function deleteAgent(req, res) {
-    try {
-        let client_id;
-        let client_data = await findClientMatch(req.body.client_type, req.body.email)
-        if (client_data) { client_id = client_data._id };
+const getInactiveUserAccs = asyncWrapper(async (req, res, next) => {
+    const response = []
+    const inactiveUsers = await Status.find({ isActive: false }).populate('user')
+    inactiveUsers.forEach(inactiveUser => {
+        response.push({
+            firstname: inactiveUser.user.firstname,
+            lastname: inactiveUser.user.lastname,
+            email: inactiveUser.user.email,
+            role: inactiveUser.role,
+            isActive: inactiveUser.isActive,
+            isVerified: inactiveUser.isVerified
+        })
+    })
+    return res.status(statusCode.OK).send({ message: "Success", response })
+})
 
-        await Agent.findOneAndDelete({ email: req.body.client_email });
-        await Password.findOneAndDelete({ agent_id_fkey: client_id });
-        await Appointment.findOneAndDelete({ agent_email_fkey: req.body.client_email });
-        await Cart.findOneAndDelete({ agent_email_fkey: req.body.client_email });
-        await Transaction.findOneAndDelete({ agent_email_fkey: req.body.client_email });
-        await Property.findOneAndDelete({ agent_email_fkey: req.body.client_email });
+const activateUserAcc = asyncWrapper(async (req, res, next) => {
+    const currUser = await User.findOne({ email: req.body.email })
+    await Status.findOneAndUpdate({ user: currUser._id }, { isActive: true }, { new: true })
+    return res.status(statusCode.OK).send({ message: "Success" })
+})
 
-        res.status(200).send({ message: "Agent deleted successfully" });
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
+const deactivateUserAcc = asyncWrapper(async (req, res, next) => {
+    const currUser = await User.findOne({ email: req.body.email })
+    if (currUser.role == "SuperAdmin") { throw new BadRequestError("Permission denied") }
+    await Status.findOneAndUpdate({ user: currUser._id }, { isActive: false }, { new: true })
+    return res.status(statusCode.OK).send({ message: "Success" })
+})
 
-async function getClientTransactionHistory(req, res) {
-    try {
-        let client_id, transaction_history;
-        let client_data = await findClientMatch(req.body.client_type, req.body.email)
-        if (client_data) { client_id = client_data._id };
 
-        if (req.body.client_type == "user") { let transaction_history = await Transaction.find({ user_email_fkey: req.body.client_email }); }
-        if (req.body.client_type == "agent") { let transaction_history = await Transaction.find({ agent_email_fkey: req.body.client_email }); }
+/* ADD NEW USERS MANUALLY - Requires an existing ADMIN (Founder, SuperAdmin)
+    SuperAdmin-> Can add all users
+    Founder -> Can add all users except SuperAdmin
+*/
+const addNewUser = asyncWrapper(async (req, res, next) => {
+    const authorized = await authorizeAdminRequest(req)
+    if (!authorized) { throw new UnauthorizedError("A Verified/Activated Admin is required for this request") }
+    const { firstname, lastname, email, password, phonenumber, role } = req.body,
+        User = users[role];
 
-        res.status(200).send({ transaction_history });
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
+    const newAdmin = await User.create({ firstname, lastname, email, password, phonenumber, role });
 
-async function getAgentPropertyListingHistory(req, res) {
-    try {
-        let client_id;
-        let client_data = await findClientMatch(req.body.client_type, req.body.email)
-        if (client_data) { client_id = client_data._id };
+    await Password.create({ role: role, user: newAdmin, password: password });
+    await Status.create({ role: role, user: newAdmin, isActive: true, isVerified: true })
 
-        let property_history = await Property.find({ agent_email_fkey: req.body.client_email });
+    const currAdmin = await User.findOne({ email, role }).populate("password status")
+    console.log(currAdmin)
 
-        res.status(200).send({ property_history });
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
-
-async function getClientAppointmentHistory(req, res) {
-    try {
-        let client_id;
-        let client_data = await findClientMatch(req.body.client_type, req.body.email)
-        if (client_data) { client_id = client_data._id };
-
-        if (req.body.client_type == "user") { let appointment_history = await Appointment.find({ user_email_fkey: req.body.client_email }); }
-        if (req.body.client_type == "agent") { let appointment_history = await Appointment.find({ agent_email_fkey: req.body.client_email }); }
-
-        res.status(200).send({ appointment_history });
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
-    }
-}
-
+    jwt_token = newAdmin.createJWT()
+    return res.status(201).send({ user: { firstname, lastname } })
+})
 
 module.exports = {
-    deleteUser,
-    deleteAgent,
-    getClientTransactionHistory,
-    getAgentPropertyListingHistory,
+    addNewUser,
+    activateUserAcc,
+    deactivateUserAcc,
+    getInactiveUserAccs
 }
+
+
+
+

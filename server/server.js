@@ -1,44 +1,64 @@
-require('dotenv').config();
+const express = require('express')
+const morgan = require('morgan')
+require('dotenv').config()
 
-const express = require("express");
-const app = express();
-
-const cors = require("cors");
-const morgan = require("morgan");
-
-const connectDatabase = require("./db/connectDB");
-
-const PORT = process.env.PORT || 5520;
-const userRoute = require("./routes/userRoute");
-const agentRoute = require("./routes/agentRoute")
-const authRoute = require("./routes/authRoute");
-const {verifyAccessToken} = require("./middleware/accessToken");
-// const adminRoute = require("./routes/adminRoute");
-// const agentRoute = require("./routes/agentRoute");
-
-app.use(cors({ origin: ["http://127.0.0.1:5500", "http://localhost:8080"] }));
-app.use(morgan("tiny"));
-app.use(express.json());
+const {asyncWrapper} = require("./middlewares/asyncWrapper")
+const {connectToDB} = require('./db/connectDB')
+const {errorHandler} = require('./middlewares/errorHandler')
+const {BASICAUTH, AGENTAUTH} = require('./middlewares/auth')
 
 
-app.use("/api/user", userRoute);
-app.use("/api/auth/", authRoute);
-app.use("/api/secure/", (req, res, next) => { verifyAccessToken(req, res, next) });
-app.use("/api/agent/", agentRoute);
-// app.use("/api/admin", adminRoute);
+const config = process.env
+const app = express()
+app.use(express.json())
 
-const start = async () => {
-  try {
-    // Initialize database
-    await connectDatabase(process.env.MONGO_URI)
+app.use(morgan('dev'))
 
-    // Express
-    app.listen(PORT, function () {
-      console.log(`Server is running on port ${PORT}....`);
-    });
-  } catch (error) {
-    console.log(error)
-  }
+// Access-Control-Allow-Origin
+app.use((req, res, next) => {
+    const allowed_origins = []
+    const origin = req.header.origin;
+
+    if (allowed_origins.includes(origin)) {
+        res.setHeader('Acces-Control-Allow-Origin', origin);
+    }
+    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', true);
+
+    next()
+})
+
+
+// Routes 
+const authRoute = require('./routes/authRoutes'),
+    cartRoute = require('./routes/cartRoutes'),
+    propertyRoute = require('./routes/propertyRoutes'),
+    adminRoute = require('./routes/adminRoutes')
+
+app.use('/api/auth', authRoute)
+app.use('/api/auth/property',  propertyRoute)
+app.use('/api/auth/cart', BASICAUTH, cartRoute)
+app.use('/api/auth/admin', BASICAUTH, adminRoute)
+app.use(errorHandler)
+
+async function start(){
+    try {
+        // connerct to database
+        await connectToDB(config.MONGO_URI)
+
+        // express server init
+        const PORT = config.PORT || 3343
+        app.listen(PORT, ()=> {
+            console.log(`Server currently listening on port ${PORT}`)
+        })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 start()
+
+
+
+

@@ -1,102 +1,109 @@
+// Utilities
+const { asyncWrapper } = require('../middlewares/asyncWrapper'),
+    { decodeJWT } = require('./utils/jwt');
+
+const mongoose = require('mongoose')
+// Models
 const { Cart } = require("../models/cartModel."),
     { Property } = require("../models/propertyModel");
+const { BadRequestError } = require('../middlewares/customError');
+const { Transaction } = require('../models/transactionModel');
 
-async function addPropertyToCart(req, res) {
-    try {
-        let response = await Cart.findOne({ user_email_fkey: req.body.email });
-        if (response) {
-            response.propertires.push(req.body.property_id);
-            await response.save();
-            res.status(200).send(response);
-        } else {
-            let cart = new Cart({
-                user_email_fkey: req.body.email,
-                properties: [req.body.property_id]
-            })
-            await cart.save();
-            res.status(200).send(cart); // Send cart object
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+const addPropertyToCart = asyncWrapper(async (req, res, next) => {
+    const { bearer, property_id } = req.body
+    let response = await Cart.findOne({ user: bearer._id });
+
+    if (response) {
+        response.properties.push(property_id)
+        await response.save();
+        return res.status(200).send(response);
     }
-}
+    await Cart.create({
+        user: bearer._id,
+        properties: [property_id]
+    })
+    return res.status(200).send({message: "success"}); // Send cart object
+})
 
-async function removePropertyFromCart(req, res) {
-    try {
-        let response = await Cart.findOne({ user_email_fkey: req.body.email });
-        if (response) {
-            response.properties.pull(req.body.property_id);
-            await response.save();
-            res.status(200).send(response);
-        } else { res.status(200).send(response) }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+const removePropertyFromCart = asyncWrapper(async (req, res, next) => {
+    let response = await Cart.findOne({ user: req.body.bearer._id })
+    if (!response) { throw new BadRequestError('Cart is empty') }
+
+    response.properties.pull(req.body.property_id)
+    await response.save()
+
+    return res.status(200).send({ message: "Success" })
+})
+
+const getCartItems = asyncWrapper(async (req, res, next) => {
+    const cart = await Cart.findOne({ user: req.body.bearer._id }).populate('properties')
+    console.log(cart)
+    res.status(200).send({ message: "success", response: cart.properties })
+})
+
+const checkout = asyncWrapper(async(req, res, next) => {
+    const cart = await Cart.findOne({user: req.body.bearer._id}).populate('properties')
+    const properties = cart.properties
+    let total_amount = 0
+
+    properties.forEach(property => {
+        total_amount += property.specifications.price
+    })
+
+    console.log(total_amount)
+    const transaction_data = {
+        user: req.body.bearer._id,
+        properties,
+        payment_method: 'card',
+        amount: total_amount,
     }
-}
+    const transaction = await Transaction.create(transaction_data)
+    return res.status(200).send({message: "success", transaction: { reference: transaction.ref }})
+})
 
-async function getCartItems(req = null, res = null, user_email = null) {
-    try {
-        let search_response = await Cart.findOne({ user_email_fkey: req.body.email || user_email });
-        if (search_response) {
-            let cart_items = []
-            for (let i = 0; i < response.properties.length; i++) {
-                let property_id = response.properties[i];
-                let property = await Property.findOne({ _id: property_id });
-                cart_items.push(property);
-            }
-            if (req) { res.status(200).send(cart_items) }
-            return cart_items
-        } else {
-            if (req) { res.status(200).send(response) }
-            return response
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+const confirmCheckout = asyncWrapper(async(req, res, next) => {
+    const { reference, bearer } = req.body
+    if (!reference) { throw new BadRequestError('Payment reference is required') }
+
+    const URL = `https://api.paystack.co/transaction/verify/${reference}`
+
+    const transaction =
+        await axios.get(URL, {
+            headers: { 'Authorization': `Bearer ${config.PAYSTACK_SECRET_KEY}` }
+        })
+            .then(response => { return response.data },
+                error => { return error.response })
+            .catch(error => console.log(error))
+
+    // Failed transaction
+    if (!transaction.data.status) { throw new BadRequestError(transaction.data.message) } 
+
+    // Checks if the transaction amount from payment service provider matches local record
+    const existing_transaction = await Transaction.findOne({ user: bearer._id, ref: reference })
+    if (existing_transaction.amount != (transaction.data.amount / 100)) {
+        throw new BadRequestError('Transaction Amount does not tally with saved amount')
     }
-}
 
-async function checkoutCart(req, res) {
-    // try {
-    //     let cart_items = await getCartItems(null, null, req.body.email),
-    //         total_amount = 0;
-    //     for (let property in cart_items) { total_amount += property.specifications.price };
-    //     let transaction = new Transaction({
-    //         agent_email_fkey: property.agent_email,
-    //         user_email_fkey: req.body.email,
-    //         properties: cart_items,
-    //         total_amount: total_amount,
-    //         payment_method: req.body.payment_method,
-    //         payment_status: "pending",
-    //         transaction_status: "pending",
-    //     })
-    //     transaction.save()
-    //         .then(response => {
-    //             res.status(200).send(response)
-    //         })
-    // } catch (error) {
-    //     console.log(error)
-    //     res.status(500).send(error)
-    // }
-}
-
-async function clearCart(res, res) {
-    try {
-        let response = await Cart.findOneAndDelete({ user_email_fkey: req.body.email });
-        if (response) { res.status(200).send(response) }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send(error)
+    // Checks if user's wallet has been credited
+    if (existing_transaction.status != 'success') {
+        await existing_transaction.updateOne({ status: "success" })
+        const user_wallet = await Wallet.findOne({ user: bearer._id })
+        await user_wallet.updateOne({ balance: user_wallet.balance + transaction.data.amount / 100 })
     }
-}
+
+    res.status(200).send({ message: "Success" })
+})
+
+const clearCart = asyncWrapper(async (req, res, next) => {
+    const cart = await Cart.findOneAndUpdate({ user: req.body.bearer._id }, { properties: [] })
+    res.status(200).send({ message: "success" })
+})
 
 
 module.exports = {
     addPropertyToCart,
     removePropertyFromCart,
     getCartItems,
-    checkoutCart,
+    checkout,
     clearCart,
 }
