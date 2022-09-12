@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+
+<body>
+    <div class="container">
+        <input id="amount"></input>
+        <button id="pay"> Pay </button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+        const make_payment = document.getElementById('pay')
+        const serverURL = "http://127.0.0.1:5525/api"
+
+        make_payment.addEventListener('click', async () => {
+            const amount = document.getElementById('amount').value,
+                email = 'molunorichie@gmail.com'
+
+
+            const initial_data = {
+                email, amount, payment_method: 'card', transaction_type: 'wallet_topup'
+            }
+            const bearer = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzFkZTg2MjIyYzI4MmU5NmE2NThkMmIiLCJlbWFpbCI6Im1vbHVuby5yLmljaGllQGdtYWlsLmNvbSIsInJvbGUiOiJBZ2VudCIsImlhdCI6MTY2MjkwNTk4NiwiZXhwIjoxNjYyOTkyMzg2fQ.VHKb4ioYk2jnM5PElexPuOhdMZ4mWmreOgOKcPBOIIg"
+            const config = {
+                method: 'post',
+                url: 'http://127.0.0.1:5525/api/auth/cart/checkout',
+                headers: {
+                    'Authorization': `Bearer ${bearer}`,
+                    'Content-Type': 'application/json'
+                },
+                data: initial_data
+            };
+
+            const payment = await axios(config)
+                .then(function (response) {
+                    console.log(response.data);
+                    return response
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            // const payment = await axios.(serverURL + "/auth/wallet/topup", initial_data).then((response) => { console.log(response); return response }).catch((error) => { console.log(error) })
+            // const payment = await axios(configa).then((response) => { console.log(response); return response }).catch((error) => { console.log(error) })
+            const payment_data = payment.data
+            console.log(payment_data)
+
+            let handler = PaystackPop.setup({
+                key: payment_data.public_key, // Replace with your public key
+                email,
+                amount: amount,
+                currency: 'NGN',
+                ref: payment_data.transaction.reference, // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                onClose: function () {
+                    alert('Window closed.');
+                },
+                callback: function (res) {
+                    var myHeaders = new Headers();
+                    myHeaders.append("Authorization", `Bearer ${bearer}`);
+                    myHeaders.append("Content-Type", "application/json");
+                    const requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: JSON.stringify(res)
+                    };
+
+                    fetch(serverURL + "/auth/cart/confirmcheckout", requestOptions)
+                        .then(response => console.log(response.json()))
+
+                    console.log('Payment complete! Reference: ' + res.reference)
+                    // let verify = axios.post(serverURL + "/transaction/verify", res).then((response) => { console.log(response); return response }).catch((error) => { console.log(error) })
+                    // console.log(verify)
+                }
+            });
+
+            handler.openIframe();
+        })
+
+    </script>
+</body>
+
+</html>

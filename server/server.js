@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
 
@@ -10,6 +11,8 @@ const {BASICAUTH, AGENTAUTH} = require('./middlewares/auth')
 
 const config = process.env
 const app = express()
+
+app.use(cors())
 app.use(express.json())
 
 app.use(morgan('dev'))
@@ -20,8 +23,9 @@ app.use((req, res, next) => {
     const origin = req.header.origin;
 
     if (allowed_origins.includes(origin)) {
-        res.setHeader('Acces-Control-Allow-Origin', origin);
+        res.setHeader('Access-Control-Allow-Origin', origin);
     }
+    res.setHeader('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', true);

@@ -22,11 +22,11 @@ const getBearerToken = (req) => {
 
 const BASICAUTH = asyncWrapper(async (req, res, next) => {
     const payload = getBearerToken(req, next)
-    console.log(payload)
+    // console.log(payload)
     req.body.bearer = payload
     // console.log(payload)
     const currUser = await User.findOne({ _id: payload._id, role: payload.role }).populate('status');
-    console.log(currUser)
+    // console.log(currUser)
     if (!currUser || !currUser.status.isActive || !currUser.status.isVerified) { throw new UnauthorizedError("Unauthorized access") }
 
     next()
